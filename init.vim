@@ -115,7 +115,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
 " Word counter plugin for manuscripts
-Plug 'vim-scripts/wc.vim--jcline'
+" Plug 'vim-scripts/wc.vim--jcline'
 
 " Telescope plugin for advanced fuzzy-search
 Plug 'nvim-telescope/telescope.nvim'
