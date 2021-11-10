@@ -112,23 +112,26 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " treesitter playground plugin
-Plug 'nvim-treesitter/playground'
+" Plug 'nvim-treesitter/playground'
 
 " Word counter plugin for manuscripts
 " Plug 'vim-scripts/wc.vim--jcline'
 
 " Telescope plugin for advanced fuzzy-search
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 " telescope dependencies:
 " grep
 " Plug 'BurntSushi/ripgrep'
 
 " a search plugin for telescope
-Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
+" Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 
 " required plugin
-Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+
+" For emacs Org-mode in Neovim
+Plug 'kristijanhusak/orgmode.nvim'
 
 call plug#end()
 
@@ -158,6 +161,10 @@ EOF
 colorscheme gruvbox
 set background=dark
 
+" orgmode SETTINGS
+
+lua << EOF
+EOF
 
 " =============== REMAPS ===============
 
