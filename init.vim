@@ -117,6 +117,19 @@ Plug 'nvim-treesitter/playground'
 " Word counter plugin for manuscripts
 Plug 'vim-scripts/wc.vim--jcline'
 
+" Telescope plugin for advanced fuzzy-search
+Plug 'nvim-telescope/telescope.nvim'
+
+" telescope dependencies:
+" grep
+" Plug 'BurntSushi/ripgrep'
+
+" a search plugin for telescope
+Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
+
+" required plugin
+Plug 'nvim-lua/plenary.nvim'
+
 call plug#end()
 
 " nvim-lspconfing SETTINGS ==============================
