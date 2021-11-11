@@ -112,23 +112,23 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " treesitter playground plugin
-" Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/playground'
 
 " Word counter plugin for manuscripts
-" Plug 'vim-scripts/wc.vim--jcline'
+Plug 'vim-scripts/wc.vim--jcline'
 
 " Telescope plugin for advanced fuzzy-search
-" Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " telescope dependencies:
 " grep
 " Plug 'BurntSushi/ripgrep'
 
 " a search plugin for telescope
-" Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
+Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 
 " required plugin
-" Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim'
 
 " For emacs Org-mode in Neovim
 Plug 'kristijanhusak/orgmode.nvim'
@@ -155,13 +155,13 @@ require 'nvim-treesitter.configs'.setup{
 }
 EOF
 
-" Gruvbox SETTINGS ===========================
+" Gruvbox SETTINGS ==============================
 
 " color scheme settings to only the best
 colorscheme gruvbox
 set background=dark
 
-" orgmode SETTINGS
+" orgmode SETTINGS ==============================
 
 lua << EOF
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
