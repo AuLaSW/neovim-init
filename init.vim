@@ -133,6 +133,9 @@ Plug 'nvim-lua/plenary.nvim'
 " For emacs Org-mode in Neovim
 Plug 'kristijanhusak/orgmode.nvim'
 
+" For table support (great for org-mode)
+Plug 'dhruvasagar/vim-table-mode'
+
 call plug#end()
 
 " nvim-lspconfing SETTINGS ==============================
@@ -181,14 +184,16 @@ EOF
 
 " =============== REMAPS ===============
 
+" GENERAL ==============================
+
 " change mapleader to <SPACE>
 let mapleader = " "
 
 " creates new lines below
-" noremap <Leader>o o<ESC>
+nmap <Leader>o o<ESC>
 
 " creates 2 new lines above
-" noremap <Leader>O O<ESC>
+nmap <Leader>O O<ESC>
 
 " create main C++ program function @ line
 noremap <Leader>c iint main()<CR>{<CR>}<ESC>O
@@ -196,13 +201,19 @@ noremap <Leader>c iint main()<CR>{<CR>}<ESC>O
 " create main C++ program function below line
 noremap <Leader>C oint main()<CR>{<CR>}<ESC>O
 
+" vim-table-mode ==============================
+
+noremap <Leader>tm :TableModeToggle
+
+" DEPRICATED ==============================
+
 " Autoinput '#include <>' in a file
 " nnoremap <Leader>i i#include <><ESC>
 " nnoremap <Leader>I i#include <><cr><ESC>
 
 " remaps the <Up> key to <C-K> when in popupmenu
-imap <expr> <C-K> pumvisible() ? '<C-P>' : '<Up>'
+" imap <expr> <C-K> pumvisible() ? '<C-P>' : '<Up>'
 
 " remaps the <Down> key to <C-J> when in popupmenu
-imap <expr> <C-J> pumvisible() ? '<C-N>' : '<Down>'
+" imap <expr> <C-J> pumvisible() ? '<C-N>' : '<Down>'
 
