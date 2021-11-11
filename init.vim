@@ -91,8 +91,8 @@ set signcolumn=yes
 " use g++ as the make compiler
 set mp=g++
 
-set comments-=://
-set comments+=f://
+"set comments-=://
+"set comments+=f://
 
 
 " =============== Plugins ===============
@@ -143,17 +143,6 @@ EOF
 
 " nvim-treesitter SETTING ==============================
 
-lua << EOF
-require 'nvim-treesitter.configs'.setup{
-   highlight = {
-       enable = true,
-       additional_vim_regex_highlighting = false
-   },
-   indent = {
-       enable = true
-   }
-}
-EOF
 
 " Gruvbox SETTINGS ==============================
 
@@ -182,6 +171,11 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
   },
   ensure_installed = {'org'}, -- Or run :TSUpdate org
+
+  require('orgmode').setup({
+    org_agenda_file = {'./Dropbox/org/*'},
+    org_default_notes_file = './dropbox/org/refile.org',
+    } )
 }
 EOF
 
@@ -191,10 +185,10 @@ EOF
 let mapleader = " "
 
 " creates new lines below
-noremap <Leader>o o<ESC>
+" noremap <Leader>o o<ESC>
 
 " creates 2 new lines above
-noremap <Leader>O O<ESC>
+" noremap <Leader>O O<ESC>
 
 " create main C++ program function @ line
 noremap <Leader>c iint main()<CR>{<CR>}<ESC>O
