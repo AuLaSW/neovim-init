@@ -173,8 +173,8 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {'org'}, -- Or run :TSUpdate org
 
   require('orgmode').setup({
-    org_agenda_file = {'./Dropbox/org/*'},
-    org_default_notes_file = './dropbox/org/refile.org',
+    org_agenda_file = '/org/agenda/',
+    org_default_notes_file = '/org/notes/',
     } )
 }
 EOF
