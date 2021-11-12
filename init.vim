@@ -186,7 +186,7 @@ require'nvim-treesitter.configs'.setup {
 
   require('orgmode').setup({
     org_agenda_file = '/org/agenda/*',
-    org_default_notes_file = '/org/notes/refile.org'
+    org_default_notes_file = '/org/notes/refile.org',
     } )
 }
 EOF
@@ -209,8 +209,8 @@ lua <<EOF
     },
     mapping = {
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-      ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+      ['<C-J>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+      ['<C-K>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
       ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -264,7 +264,7 @@ EOF
 " GENERAL ==============================
 
 " change mapleader to <SPACE>
-let mapleader = " "
+let mapleader = ","
 
 " creates new lines below
 nmap <Leader>o o<ESC>
@@ -282,6 +282,10 @@ noremap <Leader>C oint main()<CR>{<CR>}<ESC>O
 
 noremap <Leader>tm :TableModeToggle
 
+" orgmode 
+
+nnoremap <Leader><space> :lua require("orgmode").action("org_mappings.toggle_checkbox")<CR>
+
 " DEPRICATED ==============================
 
 " Autoinput '#include <>' in a file
@@ -289,8 +293,8 @@ noremap <Leader>tm :TableModeToggle
 " nnoremap <Leader>I i#include <><cr><ESC>
 
 " remaps the <Up> key to <C-K> when in popupmenu
-imap <expr> <C-K> pumvisible() ? '<C-P>' : '<Up>'
+"imap <expr> <C-K> pumvisible() ? '<C-P>' : '<Up>'
 
 " remaps the <Down> key to <C-J> when in popupmenu
-imap <expr> <C-J> pumvisible() ? '<C-N>' : '<Down>'
+"imap <expr> <C-J> pumvisible() ? '<C-N>' : '<Down>'
 
