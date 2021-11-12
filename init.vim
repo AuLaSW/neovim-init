@@ -1,4 +1,4 @@
-" Austin's _vimrc file
+" Austin's init.vim file
 " set up 11-6-21
 
 
@@ -187,6 +187,7 @@ require'nvim-treesitter.configs'.setup {
   require('orgmode').setup({
     org_agenda_file = '/org/agenda/*',
     org_default_notes_file = '/org/notes/refile.org',
+    org_indent_mode = 'noindent'
     } )
 }
 EOF
@@ -217,7 +218,7 @@ lua <<EOF
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({
+      ['<C-L>'] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
       })
@@ -267,10 +268,10 @@ EOF
 let mapleader = ","
 
 " creates new lines below
-nmap <Leader>o o<ESC>
+nnoremap <Leader>o o<ESC>
 
 " creates 2 new lines above
-nmap <Leader>O O<ESC>
+nnoremap <Leader>O O<ESC>
 
 " create main C++ program function @ line
 noremap <Leader>c iint main()<CR>{<CR>}<ESC>O
@@ -282,9 +283,30 @@ noremap <Leader>C oint main()<CR>{<CR>}<ESC>O
 
 noremap <Leader>tm :TableModeToggle
 
-" orgmode 
+" orgmode ==============================
 
-nnoremap <Leader><space> :lua require("orgmode").action("org_mappings.toggle_checkbox")<CR>
+" fix checkbox toggle mapping
+noremap <Leader>oct :lua require("orgmode").action("org_mappings.toggle_checkbox")<CR>
+
+" telescope ==============================
+
+" live_grep search current directory
+nnoremap <silent> <Leader>tsgd :lua require('telescope.builtin').live_grep()<CR>
+
+" searches for string underneath cursor in current directory
+nnoremap <silent> <Leader>tsgsd :lua require('telescope.builtin').grep_string()<CR>
+
+" search for files in current directory
+nnoremap <silent> <Leader>tsfd :lua require('telescope.builtin').file_browser()<CR>
+
+" search in current buffer
+nnoremap <silent> <Leader>tsfzb :lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
+
+" spelling suggesting
+nnoremap <silent> <Leader>tssp :lua require('telescope.builtin').spell_suggest()<CR>
+
+
+
 
 " DEPRICATED ==============================
 
