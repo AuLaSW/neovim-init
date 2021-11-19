@@ -145,6 +145,21 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+" NERDTree for navigating directories in file
+Plug 'preservim/nerdtree'
+
+" Syntax highlighting in NERDTree
+Plug 'scrooloose/nerdtree-project-plugin'
+
+" Visual Selection file operations (over multiple files)
+Plug 'PhilRunninger/nerdtree-visual-selection'
+
+" git flags for files and folders in NERDTree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" nighlight open files and close buffer from NERDTree
+Plug 'PhilRunninger/nerdtree-buffer-ops'
+
 call plug#end()
 
 " nvim-lspconfing SETTINGS ==============================
@@ -187,7 +202,7 @@ require'nvim-treesitter.configs'.setup {
   require('orgmode').setup({
     org_agenda_file = '/org/agenda/*',
     org_default_notes_file = '/org/notes/refile.org',
-    org_indent_mode = 'noindent'
+    org_indent_mode = 'noindent',
     } )
 }
 EOF
@@ -209,7 +224,7 @@ lua <<EOF
       end,
     },
     mapping = {
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<tab>'] = cmp.mapping.confirm({ select = true }),
       ['<C-J>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<C-K>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
