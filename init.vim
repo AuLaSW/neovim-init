@@ -4,8 +4,9 @@
 
 " SET ============================= 
 
+" DO NOT TURN ON, WILL MESS UP LSP AND CMP
 " turn on syntax highlighting
-syntax on
+"syntax on
 
 " exrc: run local vimrc file
 set exrc
@@ -131,7 +132,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 Plug 'nvim-lua/plenary.nvim'
 
 " For emacs Org-mode in Neovim
-Plug 'kristijanhusak/orgmode.nvim'
+Plug 'nvim-orgmode/orgmode'
 
 " For table support (great for org-mode)
 Plug 'dhruvasagar/vim-table-mode'
@@ -203,6 +204,10 @@ require'nvim-treesitter.configs'.setup {
     org_agenda_file = '/org/agenda/*',
     org_default_notes_file = '/org/notes/refile.org',
     org_indent_mode = 'noindent',
+    org_agenda_templates = {
+        {N = {description = 'Narrative Note', template = '* TODO %^{Enter a quick description of the note} :notes:narrative:\n%T\n%a\n\n%x\n\n%?' , target = '/org/notes/refile.org'}},
+        {t = {description = 'Task', template = '* TODO %?\n %u'}}
+        }
     } )
 }
 EOF
