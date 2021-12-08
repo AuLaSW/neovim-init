@@ -171,6 +171,7 @@ EOF
 
 " nvim-treesitter SETTING ==============================
 
+" See orgmode settings
 
 " Gruvbox SETTINGS ==============================
 
@@ -192,21 +193,25 @@ parser_config.org = {
 }
 
 require'nvim-treesitter.configs'.setup {
+  ensure_installed = {'cpp', 'vim', 'lua', 'org'}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
   highlight = {
     enable = true,
     disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
     additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
   },
-  ensure_installed = {'org'}, -- Or run :TSUpdate org
+  -- ensure_installed = {'org'}, -- Or run :TSUpdate org
 
   require('orgmode').setup({
     org_agenda_file = '/org/agenda/*',
     org_default_notes_file = '/org/notes/refile.org',
     org_indent_mode = 'noindent',
     org_agenda_templates = {
-        {N = {description = 'Narrative Note', template = '* TODO %^{Enter a quick description of the note} :notes:narrative:\n%T\n%a\n\n%x\n\n%?' , target = '/org/notes/refile.org'}},
-        {t = {description = 'Task', template = '* TODO %?\n %u'}}
+        N = {description = 'Narrative Note', template = '* TODO %^{Enter a quick description of the note} :note:narrative:\n%T\n%a\n\n%x\n\n%?' , target = '/org/notes/refile.org'},
+        t = {description = 'Task', template = '* TODO %?\n %u'},
+        C = {description = 'Character', template = '* TODO Add %^{Enter Character Name} to character log :character:\n%T\n%a\n\n%?', target = '/org/notes/refile.org'},
+        p = {description = 'Poem', template = '* TODO Refile Poem %T :poetry:\nCREATED: %T\n\n%?', target = '/org/notes/poetry.org'}
         }
     } )
 }
