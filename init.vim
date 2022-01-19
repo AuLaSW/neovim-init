@@ -121,6 +121,9 @@ Plug 'vim-scripts/wc.vim--jcline'
 " Telescope plugin for advanced fuzzy-search
 Plug 'nvim-telescope/telescope.nvim'
 
+" Telescope file browser
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+
 " telescope dependencies:
 " grep
 " Plug 'BurntSushi/ripgrep'
@@ -283,6 +286,31 @@ lua <<EOF
   }
 EOF
 
+" Telescope ===============================
+
+lua << EOF
+    -- You don't need to set any of these options.
+    -- IMPORTANT!: this is only a showcase of how you can set default options!
+    require("telescope").setup {
+      extensions = {
+        file_browser = {
+          theme = "ivy",
+          mappings = {
+            ["i"] = {
+              -- your custom insert mode mappings
+            },
+            ["n"] = {
+              -- your custom normal mode mappings
+            },
+          },
+        },
+      },
+    }
+    -- To get telescope-file-browser loaded and working with telescope,
+    -- you need to call load_extension, somewhere after setup function:
+    require("telescope").load_extension "file_browser"
+EOF
+
 " vimtex ===============================
 
 let g:tex_flavor = 'latex'
@@ -292,7 +320,7 @@ let conceallevel = 2
 
 " telekasten ====================
 
-lua << END
+lua << EOF
 local home = vim.fn.expand("~/zettelkasten")
 require('telekasten').setup({
     home         = home,
@@ -311,7 +339,7 @@ require('telekasten').setup({
     -- image subdir for pasting
     -- subdir name
     -- or nil if pasted images shouldn't go into a special subdir
-    image_subdir = "img",
+     image_subdir = "img",
 
     -- markdown file extension
     extension    = ".md",
@@ -399,7 +427,7 @@ require('telekasten').setup({
     new_note_location = "smart",
 
 })
-END
+EOF
 
 " =============== REMAPS ===============
 
@@ -414,15 +442,9 @@ nnoremap <Leader>o o<ESC>
 " creates 2 new lines above
 nnoremap <Leader>O O<ESC>
 
-" create main C++ program function @ line
-noremap <Leader>c iint main()<CR>{<CR>}<ESC>O
-
-" create main C++ program function below line
-noremap <Leader>C oint main()<CR>{<CR>}<ESC>O
-
 " vim-table-mode ==============================
 
-noremap <Leader>tm :TableModeToggle
+noremap <Leader>tm :TableModeToggle<CR>
 
 " orgmode ==============================
 
