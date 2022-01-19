@@ -147,19 +147,28 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
 " NERDTree for navigating directories in file
-Plug 'preservim/nerdtree'
+"Plug 'preservim/nerdtree'
 
 " Syntax highlighting in NERDTree
-Plug 'scrooloose/nerdtree-project-plugin'
+"Plug 'scrooloose/nerdtree-project-plugin'
 
 " Visual Selection file operations (over multiple files)
-Plug 'PhilRunninger/nerdtree-visual-selection'
+"Plug 'PhilRunninger/nerdtree-visual-selection'
 
 " git flags for files and folders in NERDTree
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " nighlight open files and close buffer from NERDTree
-Plug 'PhilRunninger/nerdtree-buffer-ops'
+"Plug 'PhilRunninger/nerdtree-buffer-ops'
+
+" Zettelkasten plugin
+"Plug 'oberblastmeister/neuron.nvim'
+
+" neuron dependency
+"Plug 'nvim-lua/popup.nvim'
+
+" working with latex
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -284,6 +293,13 @@ lua <<EOF
     capabilities = capabilities
   }
 EOF
+
+" vimtex ===============================
+
+let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_mode = 0
+let conceallevel = 2
 
 " =============== REMAPS ===============
 
