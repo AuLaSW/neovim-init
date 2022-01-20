@@ -293,12 +293,12 @@ let conceallevel = 2
 " telekasten ====================
 
 lua << END
-local home = vim.fn.expand("~/zettelkasten")
+local home = '/Users/ferns/zettelkasten'
 require('telekasten').setup({
     home         = home,
 
     -- if true, telekasten will be enabled when opening a note within the configured home
-    take_over_my_home = true,
+    take_over_my_home = false,
 
     -- auto-set telekasten filetype: if false, the telekasten filetype will not be used
     --                               and thus the telekasten syntax will not be loaded either
