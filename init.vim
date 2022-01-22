@@ -293,7 +293,7 @@ let conceallevel = 2
 " telekasten ====================
 
 lua << END
-local home = "C:\Users\ferns\zettelkasten"
+local home = vim.fn.expand('~/zettelkasten')
 require('telekasten').setup({
     home         = home,
 
