@@ -150,7 +150,8 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'lervag/vimtex'
 
 " Zettelkasten notes manager
-Plug 'renerocksai/telekasten.nvim'
+"Plug 'renerocksai/telekasten.nvim'
+Plug 'AuLaSW/telekasten.nvim', { 'branch' : 'windows_file_path_clean' }
 
 " Calendar for zettelkasten
 Plug 'renerocksai/calendar-vim'
@@ -293,7 +294,7 @@ let conceallevel = 2
 " telekasten ====================
 
 lua << END
-local home = '/Users/ferns/zettelkasten'
+local home = vim.fn.expand('~/zettelkasten')
 require('telekasten').setup({
     home         = home,
 
@@ -419,6 +420,10 @@ noremap <Leader>c iint main()<CR>{<CR>}<ESC>O
 
 " create main C++ program function below line
 noremap <Leader>C oint main()<CR>{<CR>}<ESC>O
+
+" keep line centered on screen
+nnoremap j jzz
+nnoremap k kzz
 
 " vim-table-mode ==============================
 
