@@ -77,6 +77,10 @@ set termguicolors
 " minumum # of lines displayed below or above cursor
 set scrolloff=8
 
+"set sidescroll=1
+" minimum number of lines displayed to the left or right of cursor
+set sidescrolloff=17
+
 " not certain what this does, will need to look it up
 set noshowmode
 
@@ -294,7 +298,7 @@ let conceallevel = 2
 " telekasten ====================
 
 lua << END
-local home = vim.fn.expand('~/zettelkasten')
+local home = 'C:\\Users\\ferns\\zettelkasten'
 require('telekasten').setup({
     home         = home,
 
