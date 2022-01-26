@@ -92,6 +92,9 @@ set signcolumn=yes
 " use g++ as the make compiler
 set mp=g++
 
+" allow spellcheck on all files
+set spell spelllang=en_us
+
 "set comments-=://
 "set comments+=f://
 
@@ -428,11 +431,14 @@ nnoremap <Leader>o o<ESC>
 " creates 2 new lines above
 nnoremap <Leader>O O<ESC>
 
-" create main C++ program function @ line
-noremap <Leader>c iint main()<CR>{<CR>}<ESC>O
+" spelling fix suggestons
+nnoremap ss z=
 
-" create main C++ program function below line
-noremap <Leader>C oint main()<CR>{<CR>}<ESC>O
+" spelling prev error
+nnoremap <Leader>N [s
+
+" spelling next error
+nnoremap <Leader>n ]s
 
 " vim-table-mode ==============================
 
