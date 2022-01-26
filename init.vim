@@ -193,6 +193,12 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 " color scheme settings to only the best
 colorscheme gruvbox
 set background=dark
+hi clear SpellBad
+hi SpellBad ctermfg=124
+hi clear SpellCap
+hi SpellCap ctermfg=66
+hi clear SpellRare
+hi SpellRare ctermfg=72
 
 " orgmode SETTINGS ==============================
 
