@@ -120,7 +120,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
 " Word counter plugin for manuscripts
-Plug 'vim-scripts/wc.vim--jcline'
+"Plug 'vim-scripts/wc.vim--jcline'
 
 " Telescope plugin for advanced fuzzy-search
 Plug 'nvim-telescope/telescope.nvim'
@@ -152,7 +152,7 @@ Plug 'SirVer/ultisnips'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 " preconfigured ultisnips
-Plug 'honza/vim-snippets'
+Plug 'AuLaSW/vim-snippets', { 'branch': 'AuLaSW'}
 
 " working with latex
 Plug 'lervag/vimtex'
@@ -174,6 +174,11 @@ call plug#end()
 lua << EOF
 require ('lspconfig').clangd.setup{}
 EOF
+
+" UltiSnips Setting =========================
+
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " nvim-treesitter SETTING ==============================
 
