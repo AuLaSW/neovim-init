@@ -177,8 +177,13 @@ EOF
 
 " UltiSnips SETTING ==============================
 
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<s-tab>"
+" Control jumping back and forth through triggers
+let g:UltiSnipsExpandTrigger="<cr>"
+let g:UltiSnipsJumpForwardTrigger="<cr>"
+let g:UltiSnipsJumpForwardTrigger="<s-cr>"
+
+" Create custom snip directors in runtime path
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " Gruvbox SETTINGS ==============================
 
@@ -241,7 +246,7 @@ lua <<EOF
       end,
     },
     mapping = {
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<tab>'] = cmp.mapping.confirm({ select = true }),
       ['<C-J>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<C-K>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
@@ -250,7 +255,7 @@ lua <<EOF
       ['<C-F>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-E>'] = cmp.mapping.close(),
-      ['<C-L>'] = cmp.mapping.confirm({
+      ['<tab>'] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
       })
