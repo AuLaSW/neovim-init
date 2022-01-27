@@ -144,7 +144,7 @@ Plug 'nvim-orgmode/orgmode'
 " For table support (great for org-mode)
 Plug 'dhruvasagar/vim-table-mode'
 
-" autocomplete plugin requirements
+" auto complete plugin requirements
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -178,11 +178,6 @@ lua << EOF
 require ('lspconfig').clangd.setup{}
 EOF
 
-" UltiSnips Setting =========================
-
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
 " nvim-treesitter SETTING ==============================
 
 " See orgmode settings
@@ -190,9 +185,9 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " UltiSnips ==========
 
 " Control jumping back and forth through triggers
-let g:UltiSnipsExpandTrigger="<cr>"
-let g:UltiSnipsJumpForwardTrigger="<cr>"
-let g:UltiSnipsJumpForwardTrigger="<s-cr>"
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Create custom snip directors in runtime path
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
@@ -200,10 +195,11 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 " Gruvbox SETTINGS ==============================
 
 " color scheme settings to only the best
+let g:gruvbox_guisp_fallback='bg'
 colorscheme gruvbox
 set background=dark
 hi clear SpellBad
-hi SpellBad ctermfg=124
+hi SpellBad ctermfg=100
 hi clear SpellCap
 hi SpellCap ctermfg=66
 hi clear SpellRare
