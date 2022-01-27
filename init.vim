@@ -96,6 +96,8 @@ set signcolumn=yes
 " use g++ as the make compiler
 set mp=g++
 
+set spell spelllang=en_us
+
 "set comments-=://
 "set comments+=f://
 
