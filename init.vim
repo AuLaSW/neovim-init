@@ -96,6 +96,7 @@ set signcolumn=yes
 " use g++ as the make compiler
 set mp=g++
 
+" allow spellcheck on all files
 set spell spelllang=en_us
 
 "set comments-=://
@@ -186,11 +187,27 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " See orgmode settings
 
+" UltiSnips ==========
+
+" Control jumping back and forth through triggers
+let g:UltiSnipsExpandTrigger="<cr>"
+let g:UltiSnipsJumpForwardTrigger="<cr>"
+let g:UltiSnipsJumpForwardTrigger="<s-cr>"
+
+" Create custom snip directors in runtime path
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
 " Gruvbox SETTINGS ==============================
 
 " color scheme settings to only the best
 colorscheme gruvbox
 set background=dark
+hi clear SpellBad
+hi SpellBad ctermfg=124
+hi clear SpellCap
+hi SpellCap ctermfg=66
+hi clear SpellRare
+hi SpellRare ctermfg=72
 
 " orgmode SETTINGS ==============================
 
@@ -247,7 +264,7 @@ lua <<EOF
       end,
     },
     mapping = {
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<tab>'] = cmp.mapping.confirm({ select = true }),
       ['<C-J>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<C-K>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
@@ -256,7 +273,7 @@ lua <<EOF
       ['<C-F>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-E>'] = cmp.mapping.close(),
-      ['<C-L>'] = cmp.mapping.confirm({
+      ['<tab>'] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
       })
@@ -429,11 +446,14 @@ nnoremap <Leader>o o<ESC>
 " creates 2 new lines above
 nnoremap <Leader>O O<ESC>
 
-" create main C++ program function @ line
-noremap <Leader>c iint main()<CR>{<CR>}<ESC>O
+" spelling fix suggestons
+nnoremap ss z=
 
-" create main C++ program function below line
-noremap <Leader>C oint main()<CR>{<CR>}<ESC>O
+" spelling prev error
+nnoremap <Leader>N [s
+
+" spelling next error
+nnoremap <Leader>n ]s
 
 " vim-table-mode ==============================
 
