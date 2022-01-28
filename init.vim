@@ -266,7 +266,7 @@ lua <<EOF
       ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
       ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
       ['<C-D>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-F>'] = cmp.mapping.scroll_docs(4),
+      ['<C-U>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-E>'] = cmp.mapping.close(),
       ['<tab>'] = cmp.mapping.confirm({
