@@ -166,17 +166,57 @@ Plug 'renerocksai/telekasten.nvim'
 " Calendar for zettelkasten
 Plug 'renerocksai/calendar-vim'
 
+" Java debugger
+Plug 'mfussenegger/nvim-jdtls'
+
+" Installer for lsp's
+Plug 'williamboman/nvim-lsp-installer'
+
 " For future testing
 " Plug 'iamcco/markdown-preview.nvim'
 " Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
 
-" nvim-lspconfing SETTINGS ==============================
+" nvim-lsp-installer
 
 lua << EOF
-require ('lspconfig').clangd.setup{}
+local lsp_installer = require("nvim-lsp-installer")
+
+local servers = {
+    "clangd",
+    "jdtls"
+}
+
+for _, name in pairs(servers) do
+  local server_is_found, server = lsp_installer.get_server(name)
+  if server_is_found and not server:is_installed() then
+    print("Installing " .. name)
+    server:install()
+  end
+end
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+
+    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+    -- before passing it onwards to lspconfig.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+end)
 EOF
+
+" nvim-lspconfing SETTINGS ==============================
+
+"lua << EOF
+"require ('lspconfig').clangd.setup{}
+"EOF
 
 " nvim-treesitter SETTING ==============================
 
@@ -205,41 +245,16 @@ hi SpellCap ctermfg=66
 hi clear SpellRare
 hi SpellRare ctermfg=72
 
-" orgmode SETTINGS ==============================
+" treesitter SETTINGS ==============================
 
 lua << EOF
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.org = {
-  install_info = {
-    url = 'https://github.com/milisims/tree-sitter-org',
-    revision = 'main',
-    files = {'src/parser.c', 'src/scanner.cc'},
-  },
-  filetype = 'org',
-}
-
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {'cpp', 'vim', 'lua', 'org'}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {'cpp', 'vim', 'lua', 'org', 'java'}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
   highlight = {
     enable = true,
-    disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
-    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
   },
-  -- ensure_installed = {'org'}, -- Or run :TSUpdate org
-
-  require('orgmode').setup({
-    org_agenda_file = '/org/agenda/*',
-    org_default_notes_file = '/org/notes/refile.org',
-    org_indent_mode = 'noindent',
-    org_agenda_templates = {
-        N = {description = 'Narrative Note', template = '* TODO %^{Enter a quick description of the note} :note:narrative:\n%T\n%a\n\n%x\n\n%?' , target = '/org/notes/refile.org'},
-        t = {description = 'Task', template = '* TODO %?\n %u'},
-        C = {description = 'Character', template = '* TODO Add %^{Enter Character Name} to character log :character:\n%T\n%a\n\n%?', target = '/org/notes/refile.org'},
-        p = {description = 'Poem', template = '* TODO Refile Poem %T :poetry:\nCREATED: %T\n\n%?', target = '/org/notes/poetry.org'}
-        }
-    } )
 }
 EOF
 
@@ -260,7 +275,7 @@ lua <<EOF
       end,
     },
     mapping = {
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<C-L>'] = cmp.mapping.confirm({ select = true }),
       ['<C-J>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<C-K>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
@@ -269,7 +284,7 @@ lua <<EOF
       ['<C-U>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-E>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({
+      ['<C-L>'] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
       })
