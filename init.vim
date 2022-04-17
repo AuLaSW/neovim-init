@@ -25,6 +25,11 @@ set hidden
 " Do not make noise when errors are made
 set noerrorbells
 
+"
+filetype plugin on
+
+set ff=unix
+
 
 " Tabs =====
 
@@ -96,7 +101,7 @@ set signcolumn=yes
 " use g++ as the make compiler
 set mp=g++
 
-" allow spellcheck on all files
+" allow spellcheck on all files 
 set spell spelllang=en_us
 
 "set comments-=://
@@ -117,7 +122,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'neovim/nvim-lspconfig'
 
 " plugin for treesitter?
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter' 
 
 " treesitter playground plugin
 Plug 'nvim-treesitter/playground'
@@ -137,9 +142,6 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
 
 " required plugin
 Plug 'nvim-lua/plenary.nvim'
-
-" For emacs Org-mode in Neovim
-Plug 'nvim-orgmode/orgmode'
 
 " For table support (great for org-mode)
 Plug 'dhruvasagar/vim-table-mode'
@@ -172,55 +174,25 @@ Plug 'mfussenegger/nvim-jdtls'
 " Installer for lsp's
 Plug 'williamboman/nvim-lsp-installer'
 
+Plug 'georgewfraser/java-language-server'
+
+" File tree
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+
 " For future testing
 " Plug 'iamcco/markdown-preview.nvim'
 " Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
 
-" nvim-lsp-installer
-
-lua << EOF
-local lsp_installer = require("nvim-lsp-installer")
-
-local servers = {
-    "clangd",
-    "jdtls"
-}
-
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found and not server:is_installed() then
-    print("Installing " .. name)
-    server:install()
-  end
-end
--- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
--- or if the server is already installed).
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-
-    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
-    -- before passing it onwards to lspconfig.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-    server:setup(opts)
-end)
-EOF
 
 " nvim-lspconfing SETTINGS ==============================
 
-"lua << EOF
-"require ('lspconfig').clangd.setup{}
-"EOF
+lua << EOF
+require ('lspconfig').clangd.setup{}
+EOF
 
-" nvim-treesitter SETTING ==============================
-
-" See orgmode settings
 
 " UltiSnips ==========
 
@@ -249,7 +221,7 @@ hi SpellRare ctermfg=72
 
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {'cpp', 'vim', 'lua', 'org', 'java'}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {'cpp', 'vim', 'lua', 'java'}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   -- If TS highlights are not enabled at all, or disabled via `disable` prop, highlighting will fallback to default Vim syntax highlighting
   highlight = {
@@ -444,6 +416,8 @@ require('telekasten').setup({
 })
 END
 
+
+
 " =============== REMAPS ===============
 
 " GENERAL ==============================
@@ -466,14 +440,44 @@ nnoremap <Leader>N [s
 " spelling next error
 nnoremap <Leader>n ]s
 
+" lsp maps
+lua << EOF
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+
+vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+EOF
+
+" jdtls
+
+nnoremap <A-o> <Cmd>lua require'jdtls'.organize_imports()<CR>
+nnoremap crv <Cmd>lua require('jdtls').extract_variable()<CR>
+vnoremap crv <Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>
+nnoremap crc <Cmd>lua require('jdtls').extract_constant()<CR>
+vnoremap crc <Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>
+vnoremap crm <Esc><Cmd>lua require('jdtls').extract_method(true)<CR>
+
 " vim-table-mode ==============================
 
 noremap <Leader>tm :TableModeToggle
-
-" orgmode ==============================
-
-" fix checkbox toggle mapping
-noremap <Leader>oct :lua require("orgmode").action("org_mappings.toggle_checkbox")<CR>
 
 " telescope ==============================
 
@@ -525,6 +529,12 @@ nnoremap <leader>z :lua require('telekasten').panel()<CR>
 inoremap <leader>[ <cmd>:lua require('telekasten').insert_link({ i=true })<CR>
 inoremap <leader>zt <cmd>:lua require('telekasten').toggle_todo({ i=true })<CR>
 inoremap <leader># <cmd>lua require('telekasten').show_tags({i = true})<cr>
+"
+" nvim-tree.lua remaps
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
 
 " ----- the following are for syntax-coloring [[links]] and ==highlighted text==
 " ----- (see the section about coloring in README.md)
