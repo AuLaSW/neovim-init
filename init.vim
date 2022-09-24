@@ -209,16 +209,16 @@ call plug#end()
 " creat floating window for git handler
 
 lua << EOF
-function BufferWindow()
+function BufferWindow(command)
     -- returns the height of the editor
     local gheight = vim.api.nvim_list_uis()[1].height
     -- returns the width of the editor
     local gwidth = vim.api.nvim_list_uis()[1].width
 
     -- height of the window
-    local height = 30
+    local height = 50
     -- width of the window
-    local width = 30
+    local width = 100
 
     -- config for the window
     local config = {
@@ -228,21 +228,29 @@ function BufferWindow()
         row = (gheight - height) * 0.5,
         col = (gwidth - width) * 0.5,
         style = 'minimal',
+        border = 'rounded',
         }
 
-    -- create the buffer for fugitive
-    vim.api.nvim_command(':G')
+    local dir = vim.fn.getcwd();
 
-    local git_win = vim.api.nvim_get_current_win()
+    -- create the buffer for fugitive
+    vim.api.nvim_command('tabnew %')
+    vim.api.nvim_command(command)
+
+    local git_win = vim.api.nvim_get_current_buf()
+
+    vim.api.nvim_command('tabclose')
+
     -- open the window
     local floating_win = vim.api.nvim_open_win(
-        0,
+        git_win,
         true,
         config
     )
 
     -- close the buf window
-    vim.api.nvim_win_close(git_win, true)
+    -- vim.api.nvim_win_close(git_win, true)
+
 
 end
 EOF
