@@ -194,11 +194,31 @@ Plug 'sindrets/diffview.nvim'
 " Session Manager
 Plug 'rmagatti/auto-session'
 
+" test Manger
+Plug 'vim-test/vim-test'
+
+" Popup Terminal
+Plug 'voldikss/vim-floaterm'
+
 " For future testing
 " Plug 'iamcco/markdown-preview.nvim'
 " Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
+
+" vim-test ==============================================
+
+let test#strategy = "floaterm"
+
+" auto-session ==========================================
+
+lua << EOF
+
+require("auto-session").setup {
+    log_level = "error",
+    auto_session_suppress_dirs = {"/Neovim_Sessions"}
+    }
+EOF
 
 " neogit.nvim ==========================================
 
