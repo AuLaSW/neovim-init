@@ -187,8 +187,8 @@ Plug 'numToStr/Comment.nvim', { 'tag': 'v0.6' }
 Plug 'folke/trouble.nvim'
 
 " Git handler
-"Plug 'TimUntersberger/neogit'
-Plug 'tpope/vim-fugitive'
+Plug 'TimUntersberger/neogit'
+"Plug 'tpope/vim-fugitive'
 Plug 'sindrets/diffview.nvim'
 
 " Session Manager
