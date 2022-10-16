@@ -1,6 +1,6 @@
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
-local workspace_dir =  "C:/Users/ferns/JDTLS" .. project_name
+local workspace_dir =  "C:/Users/ferns/JDTLS/" .. project_name
 
 local config = {
   -- The command that starts the language server

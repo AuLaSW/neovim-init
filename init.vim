@@ -54,6 +54,7 @@ set expandtab
 set cpoptions+=I
 
 
+
 " End Tabs =====
 
 
@@ -106,6 +107,9 @@ set spell spelllang=en_us
 
 "set comments-=://
 "set comments+=f://
+
+" sets up folding for files based on indent
+set foldmethod=indent
 
 
 " =============== Plugins ===============
