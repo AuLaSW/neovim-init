@@ -134,12 +134,20 @@ end
 function trouble()
     local api = require('trouble')
 
-    vim.keymap.set({'n', 'v'}, "<leader>xx", function() api.open() end)
-    vim.keymap.set({'n', 'v'}, "<leader>xw", function() api.open("workspace_diagnostics") end)
-    vim.keymap.set({'n', 'v'}, "<leader>xd", function() api.open("document_diagnostics") end)
-    vim.keymap.set({'n', 'v'}, "<leader>xq", function() api.open("quickfix") end)
-    vim.keymap.set({'n', 'v'}, "<leader>xl", function() api.open("loclist") end)
+    vim.keymap.set({'n', 'v'}, "<Leader>xx", function() api.open() end)
+    vim.keymap.set({'n', 'v'}, "<Leader>xw", function() api.open("workspace_diagnostics") end)
+    vim.keymap.set({'n', 'v'}, "<Leader>xd", function() api.open("document_diagnostics") end)
+    vim.keymap.set({'n', 'v'}, "<Leader>xq", function() api.open("quickfix") end)
+    vim.keymap.set({'n', 'v'}, "<Leader>xl", function() api.open("loclist") end)
     vim.keymap.set({'n', 'v'}, "gR", function() api.open("lsp_references") end)
+end
+
+function projects()
+    --local api = require('projects_nvim')
+    local tel = require('telescope')
+
+
+    vim.keymap.set({'n', 'v'}, "<Leader>r", function() tel.extensions.projects.projects({}) end)
 end
 
 
@@ -151,6 +159,7 @@ function M.setup()
     telescope()
     nvim_tree()
     trouble()
+    projects()
 end
 
 return M

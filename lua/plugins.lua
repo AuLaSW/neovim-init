@@ -87,13 +87,11 @@ vim.cmd([[
 
     " debugging
     Plug 'puremourning/vimspector'
-    "Plug 'mfussenegger/nvim-dap'
-    "Plug 'rcarriga/cmp-dap'
-    "Plug 'Pocco81/dap-buddy.nvim'
-
     " CSS utlsnips
     Plug 'rstacruz/vim-hyperstyle'
 
+    " project management
+    Plug 'ahmedkhalf/project.nvim'
 
     call plug#end()
 ]])

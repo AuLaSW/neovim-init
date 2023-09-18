@@ -34,4 +34,8 @@ require('treesitter_setup').setup()
 
 require('cmp_setup').setup()
 
+require('telescope_setup')
+
+require('projectnvim')
+
 require('remaps').setup()
