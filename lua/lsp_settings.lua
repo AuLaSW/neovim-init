@@ -7,15 +7,12 @@ function basic_setup()
 end
 
 function config()
-    -- this is the new lsp config
-    local config = require('mason')
+    -- utils required for root_pattern
     local util = require('lspconfig/util')
     -- This fixes issue with capabilities being overwritten when this was performed
     -- in the same section as the cmp. all of that should be moved over to here, now
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
     local lsp = require('lspconfig')
-
-    config.setup()
 
     lsp.ltex.setup({
         capabilities = capabilities,
@@ -33,9 +30,85 @@ function config()
         root_dir = util.root_pattern('.git'),
     })
 
+    lsp.clangd.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = {"tpp"}
+    })
+
+    lsp.jdtls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    })
+
+    lsp.cmake.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    })
+
+    lsp.csharp_ls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    })
+
+    lsp.pylsp.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+            pylsp = {
+                plugins = {
+                    autopep8 = {
+                        enabled = true,
+                    },
+                    pylsp_mypy = {
+                        enabled = false,
+                        live_mode = true,
+                        report_progress = true,
+                    },
+                    pyflakes = {
+                        enabled = false
+                    },
+                    flake8 = {
+                        enabled = false
+                    },
+                    pylint = {
+                        enabled = true,
+                        executable = 'pylint',
+                        args = { '--rcfile=' .. vim.fn.getcwd() .. '\\.config\\.pylintrc' }
+                    },
+                }
+            }
+        },
+    })
+
     lsp.lua_ls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
+    })
+
+    lsp.quick_lint_js.setup({
+        capabilities = capabilities,
+        on_attach = on_attach
+    })
+
+    lsp.html.setup({
+        capabilities = capabilities,
+        on_attach = on_attach
+    })
+
+    lsp.cssls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach
+    })
+
+    lsp.marksman.setup({
+        capabilities = capabilities,
+        on_attach = on_attach
+    })
+
+    lsp.vimls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach
     })
 end
 
