@@ -1,0 +1,2 @@
+{"rule":"COMMA_COMPOUND_SENTENCE","sentence":"^\\QAnother day of driving and he'd be close enough to Mobile.\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE_2","sentence":"^\\QThe air was cool and\ncrisp, birds were chirping and the grass was damp with dew.\\E$"}
