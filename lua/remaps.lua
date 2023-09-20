@@ -4,7 +4,7 @@ local M = {}
 local opts = { silent = true, noremap = true }
 
 function leader()
-    vim.g.mapleader = ","
+    vim.g.mapleader = ','
 end
 
 function quality_of_life()
@@ -136,12 +136,12 @@ end
 function trouble()
     local api = require('trouble')
 
-    vim.keymap.set({ 'n', 'v' }, "<Leader>xx", function() api.open() end)
-    vim.keymap.set({ 'n', 'v' }, "<Leader>xw", function() api.open("workspace_diagnostics") end)
-    vim.keymap.set({ 'n', 'v' }, "<Leader>xd", function() api.open("document_diagnostics") end)
-    vim.keymap.set({ 'n', 'v' }, "<Leader>xq", function() api.open("quickfix") end)
-    vim.keymap.set({ 'n', 'v' }, "<Leader>xl", function() api.open("loclist") end)
-    vim.keymap.set({ 'n', 'v' }, "gR", function() api.open("lsp_references") end)
+    vim.keymap.set({ 'n', 'v' }, '<Leader>xx', function() api.open() end)
+    vim.keymap.set({ 'n', 'v' }, '<Leader>xw', function() api.open('workspace_diagnostics') end)
+    vim.keymap.set({ 'n', 'v' }, '<Leader>xd', function() api.open('document_diagnostics') end)
+    vim.keymap.set({ 'n', 'v' }, '<Leader>xq', function() api.open('quickfix') end)
+    vim.keymap.set({ 'n', 'v' }, '<Leader>xl', function() api.open('loclist') end)
+    vim.keymap.set({ 'n', 'v' }, 'gR', function() api.open('lsp_references') end)
 end
 
 function projects()
@@ -149,7 +149,7 @@ function projects()
     local tel = require('telescope')
 
 
-    vim.keymap.set({ 'n', 'v' }, "<Leader>r", function() tel.extensions.projects.projects({}) end)
+    vim.keymap.set({ 'n', 'v' }, '<Leader>r', function() tel.extensions.projects.projects({}) end)
 end
 
 function M.setup()

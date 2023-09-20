@@ -35,6 +35,9 @@ function basicOptions()
     vim.opt.cpoptions = 'I'
 
     vim.opt.mouse = ''
+
+    -- turn off the neovim syntax
+    vim.cmd("syntax off")
 end
 
 function tabSetup()

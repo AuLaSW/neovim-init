@@ -16,7 +16,8 @@ function config()
 
     lsp.ltex.setup({
         capabilities = capabilities,
-        on_attach = function()
+        on_attach = function(client, bufnr)
+            --client.server_capabilities.semanticTokensProvider = nil
             require("ltex_extra").setup({
                 path = 'spell/',
                 --log_level = "trace",
@@ -103,7 +104,9 @@ function config()
 
     lsp.marksman.setup({
         capabilities = capabilities,
-        on_attach = on_attach
+        on_attach = function (client, bufnr)
+            --client.server_capabilities.semanticTokensProvider = nil
+        end
     })
 
     lsp.vimls.setup({
