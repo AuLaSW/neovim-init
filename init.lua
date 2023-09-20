@@ -38,4 +38,8 @@ require('telescope_setup')
 
 require('projectnvim')
 
+require('autocmd')
+
+require('bullet_vim')
+
 require('remaps').setup()

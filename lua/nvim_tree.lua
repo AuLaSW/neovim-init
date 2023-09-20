@@ -8,6 +8,9 @@ require('nvim-tree').setup({
         enable = true,
         update_root = true,
     },
+    git = {
+        timeout = 2000,
+    },
     renderer = {
         icons = {
             glyphs = {

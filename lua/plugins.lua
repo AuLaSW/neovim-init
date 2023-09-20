@@ -93,5 +93,8 @@ vim.cmd([[
     " project management
     Plug 'ahmedkhalf/project.nvim'
 
+    " bullets in markdown
+    Plug 'dkarter/bullets.vim'
+
     call plug#end()
 ]])
