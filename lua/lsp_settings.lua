@@ -3,7 +3,25 @@ local M = {}
 
 function basic_setup()
     require("mason").setup()
-    require("mason-lspconfig").setup()
+    require("mason-lspconfig").setup(
+        {
+            ensure_installed = {
+                'ltex',
+                'clangd',
+                'jdtls',
+                'cmake',
+                --'csharp_ls',
+                'pylsp',
+                'lua_ls',
+                'vimls',
+                'quick_lint_js',
+                'html',
+                'cssls',
+                'marksman',
+            },
+
+        }
+    )
 end
 
 function config()
@@ -62,21 +80,24 @@ function config()
                         enabled = true,
                     },
                     pylsp_mypy = {
-                        enabled = false,
+                        enabled = true,
                         live_mode = true,
                         report_progress = true,
                     },
                     pyflakes = {
-                        enabled = false
+                        enabled = false,
                     },
                     flake8 = {
-                        enabled = false
+                        enabled = true,
                     },
                     pylint = {
                         enabled = true,
                         executable = 'pylint',
                         args = { '--rcfile=' .. vim.fn.getcwd() .. '\\.config\\.pylintrc' }
                     },
+                    rope = {
+                        enabled = true,
+                    }
                 }
             }
         },

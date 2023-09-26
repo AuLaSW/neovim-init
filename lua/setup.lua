@@ -1,6 +1,9 @@
 --This is the beginning of testing an init.lua config
 local M = {}
 
+function python()
+    vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Python310/python.exe'
+end
 
 function basicOptions()
     -- exrc: run local vimrc file
@@ -35,9 +38,6 @@ function basicOptions()
     vim.opt.cpoptions = 'I'
 
     vim.opt.mouse = ''
-
-    -- turn off the neovim syntax
-    vim.cmd("syntax off")
 end
 
 function tabSetup()
@@ -103,6 +103,7 @@ function fileSetup()
 end
 
 function M.setup()
+    python()
     basicOptions()
     tabSetup()
     fileSetup()
