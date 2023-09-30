@@ -2,6 +2,10 @@
 local M = {}
 
 
+function python()
+    vim.cmd([[let g:python3_host_prog = 'C:\\Users\\ferns\\AppData\\Local\\Programs\\Python\\Python311\\python.exe']])
+end
+
 function basicOptions()
     -- exrc: run local vimrc file
     vim.opt.exrc = true
@@ -35,9 +39,6 @@ function basicOptions()
     vim.opt.cpoptions = 'I'
 
     vim.opt.mouse = ''
-
-    -- turn off the neovim syntax
-    vim.cmd("syntax off")
 end
 
 function tabSetup()
@@ -103,6 +104,7 @@ function fileSetup()
 end
 
 function M.setup()
+    python()
     basicOptions()
     tabSetup()
     fileSetup()
