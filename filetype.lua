@@ -2,6 +2,7 @@ vim.g.do_filetype_lua = 1
 
 vim.filetype.add({
 	extension = {
-		book = "book",
+		md = "markdown",
+		book = "markdown",
 	}
 })

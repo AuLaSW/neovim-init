@@ -1,6 +1,9 @@
 --This is the beginning of testing an init.lua config
 local M = {}
 
+function python()
+    vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Python310/python.exe'
+end
 
 function python()
     vim.cmd([[let g:python3_host_prog = 'C:\\Users\\ferns\\AppData\\Local\\Programs\\Python\\Python311\\python.exe']])
