@@ -23,6 +23,7 @@ local function highlights()
     vim.api.nvim_set_hl(0, "@parameters.type", {fg = gruv_colors.forest_green})
     vim.api.nvim_set_hl(0, "@punctuation.delimiter.gitignore", {fg = gruv_colors.forest_green})
     vim.api.nvim_set_hl(0, "@operator.gitignore", {fg = gruv_colors.orange})
+    vim.api.nvim_set_hl(0, "@annotate", {bg = gruv_colors.orange})
 end
 
 function M.setup()

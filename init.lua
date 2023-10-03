@@ -12,6 +12,8 @@ require('nvim_tree')
 
 require('Comment').setup()
 
+require('comment_nvim')
+
 require('trouble').setup( {
     icons = false,
     fold_open = "v", -- icon used for open folds

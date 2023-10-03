@@ -14,9 +14,6 @@ vim.cmd([[
     " treesitter playground plugin
     Plug 'nvim-treesitter/playground'
 
-    " Word counter plugin for manuscripts
-    Plug 'vim-scripts/wc.vim--jcline'
-
     " telescope
     Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
     Plug 'nvim-telescope/telescope-file-browser.nvim'
@@ -28,9 +25,6 @@ vim.cmd([[
 
     " required plugin
     Plug 'nvim-lua/plenary.nvim'
-
-    " For table support (great for org-mode)
-    Plug 'dhruvasagar/vim-table-mode'
 
     " auto complete plugin requirements
     Plug 'hrsh7th/cmp-nvim-lsp'

@@ -1,7 +1,8 @@
 local bufnr = vim.api.nvim_get_current_buf()
 vim.bo[bufnr].textwidth = 65
-vim.bo[bufnr].formatoptions = vim.bo.formatoptions .. 'a'
+vim.bo[bufnr].formatoptions = vim.bo.formatoptions .. ''
 
+--[[
 function bullet_vim_maps()
     local opts_1 = { buffer = bufnr, silent = true}
     local opts_2 = { buffer = bufnr, silent = true, noremap = true}
@@ -20,6 +21,7 @@ function bullet_vim_maps()
 end
 
 bullet_vim_maps()
+--]]
 
 vim.cmd("echo 'Markdown Filetype Detected.'")
 

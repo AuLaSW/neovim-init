@@ -105,7 +105,9 @@ function config()
 
     lsp.lua_ls.setup({
         capabilities = capabilities,
-        on_attach = on_attach,
+        on_attach = function (client, bufnr)
+            client.server_capabilities.semanticTokensProvider = nil
+        end
     })
 
     lsp.quick_lint_js.setup({
