@@ -10,7 +10,7 @@ function config_setup()
         },
         indent = {
             enable = true,
-            disable = {'yaml',},
+            disable = {'yaml', 'markdown'},
         },
     }
 end
