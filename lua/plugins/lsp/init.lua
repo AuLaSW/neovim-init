@@ -38,15 +38,18 @@ return {
         }
 
         for _, server in ipairs(servers) do
-            if pcall(require, server) then
-                require('plugins.lsp.'..server)(
+            local server_name = 'plugins.lsp.'..server
+            local utils = 'plugins.lsp.utils'
+
+            if pcall(require, server_name) then
+                require(server_name)(
                     T,
                     server
                 )
             else
                 -- if we don't have a file for this server,
                 -- then create a basic setup for the server
-                require('plugins.lsp.utils')(
+                require(utils)(
                     T,
                     server,
                     {}
