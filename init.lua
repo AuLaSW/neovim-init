@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 -- Init file for Austin Swanlaw
 -- Set up 9-14-2023
 
