@@ -38,7 +38,7 @@ return {
         }
 
         for _, server in ipairs(servers) do
-            require('plugins.lsp.'..server).run(T)
+            require('plugins.lsp.'..server).run(T, server)
         end
 
         vim.diagnostic.config({

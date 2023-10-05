@@ -1,11 +1,14 @@
 local M = {}
+local P = require('plugins.lsp.utils')
 
-M.run = function (T)
-    T.lsp.clangd.setup({
-        capabilities = T.capabilities,
-        on_attach = on_attach,
-        filetypes = {"tpp"}
-    })
+M.run = function (T, lang)
+    P.run(
+        T,
+        lang,
+        {
+            filetypes = {"tpp"}
+        }
+    )
 end
 
 return M

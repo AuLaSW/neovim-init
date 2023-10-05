@@ -32,7 +32,7 @@ function config()
     local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
     local lsp = require('lspconfig')
 
-    lsp.ltex.setup({
+    lsp['ltex'].setup({
         capabilities = capabilities,
         on_attach = function(client, bufnr)
             --client.server_capabilities.semanticTokensProvider = nil

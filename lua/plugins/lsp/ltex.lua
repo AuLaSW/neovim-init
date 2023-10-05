@@ -1,9 +1,11 @@
 local M = {}
+local P = require('plugins.lsp.utils')
 
-M.run = function (T)
-    T.lsp.ltex.setup(
+M.run = function (T, lang)
+    P.run(
+        T,
+        lang,
         {
-            capabilities = T.capabilities,
             on_attach = function(client, bufnr)
                 --client.server_capabilities.semanticTokensProvider = nil
                 require("ltex_extra").setup({
