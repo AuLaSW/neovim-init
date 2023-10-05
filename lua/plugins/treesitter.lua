@@ -40,7 +40,7 @@ return {
         -- this doesn't work very well for me, so we are going to
         -- disable this for now
         indent = {
-            enable = false,
+            enable = true,
         },
         incremental_selection = {
             enabled = true,

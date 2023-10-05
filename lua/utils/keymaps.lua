@@ -1,15 +1,21 @@
 ---@diagnostic disable: lowercase-global
 local M = {}
 
+M.opts = {
+    leader = ',',
+    -- functions to use
+    use = {}
+}
+
 local opts = { silent = true, noremap = true }
 
 vim.opt.timeoutlen = 200
 
-function leader()
+M.leader = function ()
     vim.g.mapleader = ','
 end
 
-function quality_of_life()
+M.opts.use.qol = function ()
     vim.keymap.set('n', '<Leader>o', 'o<ESC>', opts)
     vim.keymap.set('n', '<Leader>O', 'O<ESC>', opts)
 
@@ -17,7 +23,7 @@ function quality_of_life()
     vim.keymap.set('n', '<Leader>gen', 'ggVGgq', opts)
 end
 
-function lsp_remaps()
+M.opts.use.lsp = function ()
     diagnostics = function()
         -- open float
         vim.keymap.set('n', '<space>e', function()
@@ -70,7 +76,7 @@ function lsp_remaps()
     diagnostics()
 end
 
-function jdtls()
+M.opts.use.jdtls = function ()
     local lsp = require('jdtls')
 
     vim.keymap.set('n', '<A-o>', function() lsp.organize_imports() end, opts)
@@ -81,7 +87,7 @@ function jdtls()
     --vim.keymap.set('v', '<Leader>crm', lsp.extract_method(true), opts)
 end
 
-function telescope()
+M.opts.use.telescope = function ()
     local api = require('telescope.builtin')
 
     -- grep string you type in
@@ -120,7 +126,7 @@ function telescope()
     vim.keymap.set({ 'n', 'v' }, '<Leader>gb', function() api.git_branches() end, opts)
 end
 
-function nvim_tree()
+M.opts.use.nvim_tree = function ()
     local api = require('nvim-tree.api')
 
     vim.keymap.set({ 'n', 'v' }, '<C-n>', function() api.tree.toggle() end, opts)
@@ -135,7 +141,7 @@ function nvim_tree()
     end, opts)
 end
 
-function trouble()
+M.opts.use.trouble = function ()
     local api = require('trouble')
 
     vim.keymap.set({ 'n', 'v' }, '<Leader>xx', function() api.open() end)
@@ -146,7 +152,7 @@ function trouble()
     vim.keymap.set({ 'n', 'v' }, 'gR', function() api.open('lsp_references') end)
 end
 
-function projects()
+M.opts.use.projects = function ()
     --local api = require('projects_nvim')
     local tel = require('telescope')
 
@@ -155,14 +161,17 @@ function projects()
 end
 
 function M.setup(opts)
-    leader()
-    quality_of_life()
-    lsp_remaps()
-    jdtls()
-    telescope()
-    nvim_tree()
-    trouble()
-    projects()
+    vim.tbl_deep_extend(
+        'force',
+        M.opts,
+        opts or {}
+    )
+
+    for _, v in pairs(M.opts.use) do
+        if pcall(v) then
+            v()
+        end
+    end
 end
 
 return M
