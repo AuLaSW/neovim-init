@@ -27,19 +27,31 @@ return {
             { ensure_installed = servers, }
         )
 
+        local T = {
+            -- util required for root_pattern
+            util = require('lspconfig/util'),
+            capabilities = require('cmp_nvim_lsp')
+                .default_capabilities(
+                    vim.lsp.protocol.make_client_capabilities()
+                ),
+            lsp = require('lspconfig'),
+        }
+
         for _, server in ipairs(servers) do
-            require('plugins.lsp.'..server)(
-                {
-                    -- util required for root_pattern
-                    util = require('lspconfig/util'),
-                    capabilities = require('cmp_nvim_lsp')
-                        .default_capabilities(
-                            vim.lsp.protocol.make_client_capabilities()
-                        ),
-                    lsp = require('lspconfig'),
-                },
-                server
-            )
+            if pcall(require, server) then
+                require('plugins.lsp.'..server)(
+                    T,
+                    server
+                )
+            else
+                -- if we don't have a file for this server,
+                -- then create a basic setup for the server
+                require('plugins.lsp.utils')(
+                    T,
+                    server,
+                    {}
+                )
+            end
         end
 
         vim.diagnostic.config({
