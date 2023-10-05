@@ -8,6 +8,7 @@ require('setup').setup()
 
 require('autocmd')
 
+--[[
 require('utils.keymaps').setup({
     use = {
         lsp = nil,
@@ -17,7 +18,6 @@ require('utils.keymaps').setup({
         projects = nil,
     }
 })
---[[
 require('trouble').setup( {
     icons = false,
     fold_open = "v", -- icon used for open folds

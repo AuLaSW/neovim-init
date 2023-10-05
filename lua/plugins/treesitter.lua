@@ -5,7 +5,8 @@ return {
     },
     version = false,
     build = ':TSUpdate',
-    lazy = false,
+    lazy = true,
+    event = 'VeryLazy',
     -- setup commands for treesitter
     init = function (_)
         vim.treesitter.language.register(

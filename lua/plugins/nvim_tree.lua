@@ -1,7 +1,7 @@
 return {
     'kyazdani42/nvim-tree.lua',
     lazy = true,
-    event = 'VeryLazy',
+    keys = {'<C-n>'},
     enabled = true,
     opts = {
         sync_root_with_cwd = true,

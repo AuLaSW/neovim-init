@@ -1,4 +1,3 @@
----@diagnostic disable: lowercase-global
 local M = {}
 
 M.opts = {
