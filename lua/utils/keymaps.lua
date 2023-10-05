@@ -154,7 +154,7 @@ function projects()
     vim.keymap.set({ 'n', 'v' }, '<Leader>r', function() tel.extensions.projects.projects({}) end)
 end
 
-function M.setup()
+function M.setup(opts)
     leader()
     quality_of_life()
     lsp_remaps()
