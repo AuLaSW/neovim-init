@@ -21,7 +21,6 @@ return {
                 end,
             },
             mapping = {
-                ['<C-L>'] = cmp.mapping.confirm({ select = true }),
                 ['<C-J>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
                 ['<C-K>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
                 ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
