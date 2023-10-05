@@ -7,8 +7,13 @@ return {
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
-        'SirVer/ultisnips',
-        'quangnguyen30192/cmp-nvim-ultisnips',
+        {
+            'SirVer/ultisnips',
+            dependencies = {
+                'quangnguyen30192/cmp-nvim-ultisnips',
+                'rstacruz/vim-hyperstyle'
+            }
+        },
         'williamboman/mason.nvim',
     },
     config = function(...)
