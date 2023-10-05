@@ -1,8 +1,7 @@
 local bufnr = vim.api.nvim_get_current_buf()
 vim.bo[bufnr].textwidth = 65
-vim.bo[bufnr].formatoptions = vim.bo.formatoptions .. ''
+vim.bo[bufnr].formatoptions = vim.bo.formatoptions .. 'aw12ptcn'
 
---[[
 function bullet_vim_maps()
     local opts_1 = { buffer = bufnr, silent = true}
     local opts_2 = { buffer = bufnr, silent = true, noremap = true}
@@ -20,8 +19,14 @@ function bullet_vim_maps()
     vim.keymap.set('v', '<', '<Plug>(bullets-promote)', opts_1)
 end
 
+function remaps()
+    local opts = { buffer = bufnr, silent = true, nowait = true}
+
+    vim.keymap.set('i', '<Space><Space>', '.  ', opts)
+end
+
 bullet_vim_maps()
---]]
+remaps()
 
 vim.cmd("echo 'Markdown Filetype Detected.'")
 

@@ -3,6 +3,8 @@ local M = {}
 
 local opts = { silent = true, noremap = true }
 
+vim.opt.timeoutlen = 200
+
 function leader()
     vim.g.mapleader = ','
 end
