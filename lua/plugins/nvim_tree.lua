@@ -1,6 +1,7 @@
 return {
     'kyazdani42/nvim-tree.lua',
     lazy = true,
+    cmd = {'NvimTreeOpen'},
     keys = {'<C-n>'},
     enabled = true,
     opts = {
@@ -44,5 +45,7 @@ return {
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
         require('nvim-tree').setup(opts)
+
+        Keymaps.nvim_tree()
     end,
 }

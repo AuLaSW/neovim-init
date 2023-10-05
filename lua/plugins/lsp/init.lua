@@ -65,5 +65,7 @@ return {
             update_in_insert = true,
             underline = true,
         })
+
+        Keymaps.lsp()
     end
 }

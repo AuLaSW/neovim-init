@@ -14,5 +14,6 @@ return {
     },
     config = function (...)
         require('telescope').load_extension('projects')
+        Keymaps.telescope()
     end
 }
