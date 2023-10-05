@@ -4,10 +4,13 @@ return {
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
-        'neovim/nvim-lspconfig'
+        'neovim/nvim-lspconfig',
+        'barreiroleo/ltex_extra.nvim',
+        'mfussenegger/nvim-jdtls',
+        'georgewfraser/java-language-server',
     },
     lazy = true,
-    event = "BufEnter",
+    event = {"BufReadPost", "BufNewFile"},
     config = function (...)
         local servers = {
             'ltex',

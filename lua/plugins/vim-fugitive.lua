@@ -4,5 +4,5 @@ return {
         'sindrets/diffview.nvim'
     },
     lazy = true,
-    event = 'VeryLazy',
+    cmd = {'G', 'G pull', 'G push', 'G fetch'}
 }

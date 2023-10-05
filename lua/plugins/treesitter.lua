@@ -1,5 +1,8 @@
 return {
     'nvim-treesitter/nvim-treesitter',
+    dependecies = {
+        'nvim-treesitter/playground'
+    },
     version = false,
     build = ':TSUpdate',
     lazy = false,

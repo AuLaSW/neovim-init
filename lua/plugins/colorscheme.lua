@@ -3,7 +3,6 @@ local function highlights(mod)
         hi DiagnosticUnderlineInfo guifg=#7fa2ac cterm=underline gui=underline
     ]])
 
-    local mod = require("gruvbox-baby.colors").config()
    -- local colors = require("gruvbox-baby.colors").config()
     vim.api.nvim_set_hl(0, "@chapter.begin", {fg = "#458588"})
     vim.api.nvim_set_hl(0, "@chapter.end", {fg = "#b16286"})
