@@ -1,0 +1,6 @@
+{
+  "gruvbox-baby": { "branch": "main", "commit": "be47338877e0536360290d66d26854e90dbc0004" },
+  "lazy.nvim": { "branch": "main", "commit": "6b6f0a451200bb6abde85978c577c73ea1577758" },
+  "nvim-tree.lua": { "branch": "master", "commit": "7dcda5d3b6d2fce7b7baa471b7ad6525383e27bb" },
+  "nvim-treesitter": { "branch": "master", "commit": "dd72cfadec27c13e93df202c7f9a6d8bb9d51826" }
+}

@@ -2,10 +2,18 @@
 -- Set up 9-14-2023
 
 
-require('plugins')
+--require('old_plugins')
+
+-- download lazy.nvim if it is not installed already
+--require('remaps').setup()
+
+require('lazy_loader')
 
 require('setup').setup()
 
+require('autocmd')
+
+--[[
 require('colorscheme').setup()
 
 require('nvim_tree')
@@ -40,8 +48,7 @@ require('telescope_setup')
 
 require('projectnvim')
 
-require('autocmd')
 
 require('bullet_vim')
 
-require('remaps').setup()
+--]]
