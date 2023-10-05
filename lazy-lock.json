@@ -4,11 +4,14 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
   "cmp-nvim-ultisnips": { "branch": "main", "commit": "24bca5c3e137b28cd87442d4fc51a2b312dd99cc" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
+  "diffview.nvim": { "branch": "main", "commit": "0437ef8bfdd67156d87140d692840a3c2824fa20" },
   "gruvbox-baby": { "branch": "main", "commit": "be47338877e0536360290d66d26854e90dbc0004" },
   "lazy.nvim": { "branch": "main", "commit": "6b6f0a451200bb6abde85978c577c73ea1577758" },
   "nvim-cmp": { "branch": "main", "commit": "5dce1b778b85c717f6614e3f4da45e9f19f54435" },
   "nvim-lspconfig": { "branch": "master", "commit": "71b39616b14c152da34fcc787fa27f09bf280e72" },
   "nvim-tree.lua": { "branch": "master", "commit": "7dcda5d3b6d2fce7b7baa471b7ad6525383e27bb" },
   "nvim-treesitter": { "branch": "master", "commit": "dd72cfadec27c13e93df202c7f9a6d8bb9d51826" },
-  "ultisnips": { "branch": "master", "commit": "f6d1501b630cb783b0af8507c5588328f826d40f" }
+  "trouble.nvim": { "branch": "main", "commit": "3f85d8ed30e97ceeddbbcf80224245d347053711" },
+  "ultisnips": { "branch": "master", "commit": "f6d1501b630cb783b0af8507c5588328f826d40f" },
+  "vim-fugitive": { "branch": "master", "commit": "99db68d9b3304580bd383da7aaee05c7a954a344" }
 }
