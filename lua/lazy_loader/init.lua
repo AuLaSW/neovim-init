@@ -17,5 +17,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup(
-    'plugins'
+    'plugins',
+    {
+        change_detection = {
+            -- Do not notify when a plugin is changed and reloaded.
+            notify = false,
+        },
+    }
 )
