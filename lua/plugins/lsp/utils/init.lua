@@ -1,7 +1,5 @@
-local M = {}
-
-M.run = function (T, lang, opts)
-    M.opts = {
+return function (T, lang, opts)
+    local config = {
         capabilities = T.capabilities,
         on_attach = on_attach
     }
@@ -9,12 +7,11 @@ M.run = function (T, lang, opts)
     if type(opts) == 'table' then
         vim.tbl_deep_extend(
             'force',
-            M.opts,
-            T or {}
+            config,
+            opts or {}
         )
     end
 
-    T.lsp[lang].setup(M.opts)
+    T.lsp[lang].setup(config)
 end
 
-return M

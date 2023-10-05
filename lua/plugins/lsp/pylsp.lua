@@ -1,8 +1,5 @@
-local P = require('plugins.lsp.utils')
-local M = {}
-
-M.run = function (T, lang)
-    P.run(
+return function (T, lang)
+    require('plugins.lsp.utils')(
         T,
         lang,
         {
@@ -38,6 +35,3 @@ M.run = function (T, lang)
     )
 
 end
-
-return M
-
