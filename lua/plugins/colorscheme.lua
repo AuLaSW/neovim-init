@@ -24,7 +24,7 @@ return {
     branch = 'main',
     lazy = false,
     priority = 1000,
-    config = function(_, opts)
+    config = function(...)
         vim.cmd[[colorscheme gruvbox-baby]]
 
         local mod = require("gruvbox-baby.colors").config()

@@ -1,8 +1,11 @@
 return {
     'kyazdani42/nvim-tree.lua',
+    dependencies = {
+        'ahmedkhalf/project.nvim',
+    },
     lazy = true,
     cmd = {'NvimTreeOpen'},
-    keys = {'<C-n>'},
+    keys = {'<C-n>', '<Leader>ni'},
     enabled = true,
     opts = {
         sync_root_with_cwd = true,

@@ -1,7 +1,7 @@
 return {
     'ahmedkhalf/project.nvim',
     lazy = true,
-    cmd = "NvimTreeOpen",
+    event = 'VeryLazy',
     opts = {
         ignore_lsp = {
             'ltext',
@@ -9,6 +9,6 @@ return {
     },
     config = function (_, opts)
         require('project_nvim').setup(opts)
-        Keymaps.projects()
+        Keymaps.project()
     end
 }
