@@ -1,7 +1,15 @@
 return {
     'folke/trouble.nvim',
     lazy = true,
-    event = {'VeryLazy'},
+    --event = {'VeryLazy'},
+    keys = {
+        "<Leader>xx",
+        "<Leader>xw",
+        "<Leader>xd",
+        "<Leader>xq",
+        "<Leader>xl",
+        "gR",
+    },
     opts = {
         icons = false,
         fold_open = "v", -- icon used for open folds
@@ -17,5 +25,6 @@ return {
     },
     config = function (_, opts)
         require('trouble').setup(opts)
+        Keymaps.trouble()
     end
 }

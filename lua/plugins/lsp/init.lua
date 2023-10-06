@@ -6,8 +6,6 @@ return {
         'neovim/nvim-lspconfig',
         'neovim/nvim-lspconfig',
         'barreiroleo/ltex_extra.nvim',
-        'mfussenegger/nvim-jdtls',
-        'georgewfraser/java-language-server',
     },
     lazy = true,
     event = {"BufReadPost", "BufNewFile"},

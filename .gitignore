@@ -1,3 +1,4 @@
 # ignore plugin files. Dowload those separately.
-\plugged/
+/plugged/
 /custom/*
+test.*
