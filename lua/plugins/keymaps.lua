@@ -6,5 +6,6 @@ return {
     event = 'VeryLazy',
     config = function (...)
         Keymaps = require('keymaps')
+        Keymaps.qol()
     end
 }

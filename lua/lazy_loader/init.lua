@@ -1,7 +1,8 @@
 -- this will load lazy.nvim, the plugin manager I plan on moving to
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
-require('utils.keymaps').leader()
+--require('keymaps.nvim').leader()
+vim.g.mapleader = ','
 
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({

@@ -17,5 +17,6 @@ return {
     },
     config = function (_, opts)
         require('trouble').setup(opts)
+        Keymaps.trouble()
     end
 }
