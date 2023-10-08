@@ -2,7 +2,7 @@ return {
     'kyazdani42/nvim-tree.lua',
     lazy = true,
     cmd = {'NvimTreeOpen'},
-    keys = {'<C-n>'},
+    keys = {'<C-n>', '<Leader>ni'},
     enabled = true,
     opts = {
         sync_root_with_cwd = true,
