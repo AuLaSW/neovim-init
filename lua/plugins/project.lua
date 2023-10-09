@@ -1,7 +1,9 @@
 return {
     'ahmedkhalf/project.nvim',
+    dependencies = {
+        'nvim-telescope/telescope.nvim',
+    },
     lazy = true,
-    event = 'VeryLazy',
     opts = {
         ignore_lsp = {
             'ltext',

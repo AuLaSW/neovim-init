@@ -4,6 +4,7 @@ return {
         'nvim-telescope/telescope-file-browser.nvim',
         'nvim-telescope/telescope-fzf-native.nvim',
         'nvim-lua/plenary.nvim',
+        'ahmedkhalf/project.nvim',
     },
     tag = '0.1.3',
     lazy = true,
