@@ -2,7 +2,6 @@
 local M = {}
 
 function python()
-    print(vim.loop.os_uname().sysname)
     if vim.loop.os_uname().sysname == "Linux" then
         vim.g.python3_host_prog = '/usr/bin/python3'
     else
