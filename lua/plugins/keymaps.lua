@@ -6,5 +6,6 @@ return {
     priority = 51,
     config = function (...)
         Keymaps = require('keymaps')
+        Keymaps.qol()
     end
 }

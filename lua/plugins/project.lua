@@ -4,6 +4,8 @@ return {
         'nvim-telescope/telescope.nvim',
     },
     lazy = true,
+    cmd = "NvimTreeOpen",
+    keys = '<Leader>r',
     opts = {
         ignore_lsp = {
             'ltext',
