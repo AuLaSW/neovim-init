@@ -1,5 +1,3 @@
-Keymaps = {}
-
 return {
     dir = vim.fn.stdpath('config').."/custom/keymaps.nvim/",
     lazy = false,
