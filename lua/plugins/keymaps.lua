@@ -1,5 +1,6 @@
 return {
-    dir = vim.fn.stdpath('config').."/custom/keymaps.nvim/",
+    --dir = vim.fn.stdpath('config').."/custom/keymaps.nvim/",
+    'AuLaSW/keymaps.nvim',
     lazy = false,
     priority = 51,
     config = function (...)
