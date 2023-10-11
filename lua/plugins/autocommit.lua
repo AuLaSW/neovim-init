@@ -6,7 +6,7 @@ return {
     lazy = true,
     keys = '<Leader>ac',
     config = function (...)
-        AutoCommit = require('autocommit')
+        require('autocommit').setup({})
         Keymaps.autocommit()
     end
 }
