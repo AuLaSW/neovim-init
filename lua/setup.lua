@@ -2,7 +2,12 @@
 local M = {}
 
 function python()
-    vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Python310/python.exe'
+    print(vim.loop.os_uname().sysname)
+    if vim.loop.os_uname().sysname == "Linux" then
+        vim.g.python3_host_prog = '/usr/bin/python3'
+    else
+        vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Python310/python.exe'
+    end
 end
 
 function python()
@@ -88,7 +93,7 @@ function fileSetup()
 
     -- menu options
     vim.opt.completeopt = 'menuone,noinsert,noselect'
-    
+
     -- creats a column at # characters out
     vim.opt.colorcolumn = '80'
 

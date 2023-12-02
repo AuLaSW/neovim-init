@@ -4,5 +4,6 @@ vim.filetype.add({
 	extension = {
 		md = "markdown",
 		book = "markdown",
+        scratch = "markdown",
 	}
 })
