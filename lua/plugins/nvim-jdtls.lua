@@ -70,6 +70,12 @@ return {
         -- This starts a new client & server,
         -- or attaches to an existing client & server depending on the `root_dir`.
         require('jdtls').start_or_attach(config)
-        Keymaps.jdtls()
+        local lsp = require('jdtls')
+        local opts = { silent = true, noremap = true }
+
+        vim.keymap.set('n', '<A-o>', function() lsp.organize_imports() end, opts)
+        vim.keymap.set('n', '<Leader>crv', function() lsp.extract_variable() end, opts)
+        vim.keymap.set('v', '<Leader>crv', function() lsp.extract_variable(true) end, opts)
+        vim.keymap.set('n', '<Leader>crc', function() lsp.extract_constant() end, opts)
     end
 }

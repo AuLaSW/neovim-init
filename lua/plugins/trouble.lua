@@ -25,6 +25,13 @@ return {
     },
     config = function (_, opts)
         require('trouble').setup(opts)
-        Keymaps.trouble()
+        local api = require('trouble')
+
+        vim.keymap.set({ 'n', 'v' }, '<Leader>xx', function() api.open() end)
+        vim.keymap.set({ 'n', 'v' }, '<Leader>xw', function() api.open('workspace_diagnostics') end)
+        vim.keymap.set({ 'n', 'v' }, '<Leader>xd', function() api.open('document_diagnostics') end)
+        vim.keymap.set({ 'n', 'v' }, '<Leader>xq', function() api.open('quickfix') end)
+        vim.keymap.set({ 'n', 'v' }, '<Leader>xl', function() api.open('loclist') end)
+        vim.keymap.set({ 'n', 'v' }, 'gR', function() api.open('lsp_references') end)
     end
 }

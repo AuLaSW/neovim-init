@@ -15,6 +15,7 @@ function basicOptions()
     -- exrc: run local vimrc file
     vim.opt.exrc = true
 
+    vim.g.mapleader = ','
 
     -- turn on line numbers & use relative line numbers
     -- displays current line # & other lines as relative
@@ -113,6 +114,15 @@ function M.setup()
     basicOptions()
     tabSetup()
     fileSetup()
+
+    local opts = { silent = true, noremap = true }
+    vim.keymap.set('n', '<Leader>o', 'o<ESC>', opts)
+    vim.keymap.set('n', '<Leader>O', 'O<ESC>', opts)
+
+    -- for regenerating a sheet
+    vim.keymap.set('n', '<Leader>pg', 'V{gq', opts)
+    vim.keymap.set('n', '<Leader>pG', 'V}gq', opts)
+    vim.keymap.set('n', '<Leader>pp', '{V}gq', opts)
 end
 
 return M
