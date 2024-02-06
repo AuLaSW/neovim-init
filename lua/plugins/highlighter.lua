@@ -5,6 +5,5 @@ return {
     event = 'BufEnter',
     config = function (...)
         require('highlight').setup()
-        Keymaps.highlight()
     end
 }

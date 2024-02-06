@@ -5,7 +5,6 @@ return {
         'tpope/vim-fugitive',
     },
     lazy = true,
-    keys = '<Leader>ac',
     config = function (...)
         require('autocommit').setup({})
         local ac = require('autocommit')
