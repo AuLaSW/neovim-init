@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0aaea32f27315e2a99ba4c12ab9def5cbb4842e4" },
+  "autocommit.nvim": { "branch": "main", "commit": "e13feaf87a54b4c64298aaa5bed8be96d2884fd7" },
   "bullets.vim": { "branch": "master", "commit": "d9a47f114031d3030b1e4de3c0b6a664b1201524" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "8ee981b4a91f536f52add291594e89fb6645e451" },
@@ -10,7 +11,6 @@
   "gruvbox-baby": { "branch": "main", "commit": "bd52e62d8134647090108189e69c8b3cd18bdbbf" },
   "highlighter.nvim": { "branch": "main", "commit": "dd0c7ecbf0b93bfe068a23902da6b51f280ffe5f" },
   "java-language-server": { "branch": "master", "commit": "ca503f1728594af4b77d68de0c04fd81d9dc10d1" },
-  "keymaps.nvim": { "branch": "main", "commit": "a05aa151a66f739da450c0025879b7b7ce5c8ab3" },
   "lazy.nvim": { "branch": "main", "commit": "aedcd79811d491b60d0a6577a9c1701063c2a609" },
   "ltex_extra.nvim": { "branch": "master", "commit": "42dd3572cb09b52a137e91e515f2dff5eb631b1e" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "0954d7730e749d606ddf8d7ae8846848be435d53" },
