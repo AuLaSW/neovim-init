@@ -27,6 +27,9 @@ return function (T, lang)
                         },
                         rope = {
                             enabled = true,
+                        },
+                        pycodestyle = {
+                            enabled = false,
                         }
                     }
                 }

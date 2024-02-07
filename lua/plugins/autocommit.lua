@@ -8,6 +8,8 @@ return {
     keys = '<Leader>ac',
     config = function (...)
         require('autocommit').setup({})
-        Keymaps.autocommit()
+        local ac = require('autocommit')
+
+        vim.keymap.set('n', '<Leader>ac', function() ac.hook() end)
     end
 }
