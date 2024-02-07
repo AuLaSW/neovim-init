@@ -6,13 +6,14 @@ function python()
     if vim.loop.os_uname().sysname == "Linux" then
         vim.g.python3_host_prog = '/usr/bin/python3'
     else
-	vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe'
+	vim.g.python3_host_prog = 'C:\\Users\\dafrp\\AppData\\Local\\Microsoft\\WindowsApps\\py.exe'
+	--vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe'
 	--vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Python310/python.exe'
     end
 end
 
 function python()
-    vim.cmd([[let g:python3_host_prog = 'C:\\Users\\ferns\\AppData\\Local\\Programs\\Python\\Python311\\python.exe']])
+    vim.cmd([[let g:python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe']])
 end
 
 function basicOptions()

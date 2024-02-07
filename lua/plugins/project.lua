@@ -15,6 +15,6 @@ return {
         require('project_nvim').setup(opts)
         local tel = require('telescope')
 
-        vim.keymap.set({ 'n', 'v' }, '<Leader>r', function() tel.extensions.projects.projects({}) end)
+        vim.keymap.set({ 'n', 'v' }, '<Leader>p', function() tel.extensions.projects.projects({}) end)
     end
 }
