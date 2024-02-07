@@ -11,6 +11,10 @@ function python()
     end
 end
 
+function python()
+    vim.cmd([[let g:python3_host_prog = 'C:\\Users\\ferns\\AppData\\Local\\Programs\\Python\\Python311\\python.exe']])
+end
+
 function basicOptions()
     -- exrc: run local vimrc file
     vim.opt.exrc = true
@@ -45,6 +49,8 @@ function basicOptions()
     vim.opt.cpoptions = 'I'
 
     vim.opt.mouse = ''
+
+    -- vim.opt.statusline = [[%<%f %h%m%r%=words: %{wordcount().words}%=line: %l  col: %c   %P]]
 end
 
 function tabSetup()

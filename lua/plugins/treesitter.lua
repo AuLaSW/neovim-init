@@ -23,6 +23,7 @@ return {
     opts = {
         ensure_installed = {
             'markdown',
+            'rust',
             'vim',
             'lua',
             'cpp',
