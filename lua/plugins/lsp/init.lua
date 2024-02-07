@@ -21,6 +21,8 @@ return {
             'html',
             'cssls',
             'marksman',
+            'bufls',
+            'rust_analyzer',
         }
 
         require('mason').setup()

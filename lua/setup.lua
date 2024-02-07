@@ -47,6 +47,8 @@ function basicOptions()
     vim.opt.cpoptions = 'I'
 
     vim.opt.mouse = ''
+
+    -- vim.opt.statusline = [[%<%f %h%m%r%=words: %{wordcount().words}%=line: %l  col: %c   %P]]
 end
 
 function tabSetup()

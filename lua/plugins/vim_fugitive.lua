@@ -2,9 +2,7 @@ return {
     'tpope/vim-fugitive',
     dependencies = {
         'sindrets/diffview.nvim',
-        {
-            dir = vim.fn.stdpath('config').."/custom/autocommit.nvim/"
-        },
+        'AuLaSW/autocommit.nvim',
     },
     lazy = true,
     cmd = {'G'}

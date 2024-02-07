@@ -1,6 +1,6 @@
 local bufnr = vim.api.nvim_get_current_buf()
 vim.bo[bufnr].textwidth = 65
-vim.bo[bufnr].formatoptions = vim.bo.formatoptions .. 'aw12ptcn'
+vim.bo[bufnr].formatoptions = vim.bo.formatoptions .. 'w12ptcn'
 
 function bullet_vim_maps()
     local opts_1 = { buffer = bufnr, silent = true}
@@ -22,7 +22,7 @@ end
 function remaps()
     local opts = { buffer = bufnr, silent = true, nowait = true}
 
-    vim.keymap.set('i', '<Space><Space>', '.  ', opts)
+    vim.keymap.set('i', '>>', '.  ', opts)
 end
 
 bullet_vim_maps()
