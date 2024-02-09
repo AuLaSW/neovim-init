@@ -14,6 +14,7 @@ end
 
 function python()
     vim.cmd([[let g:python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe']])
+    vim.cmd([[let g:python3_host_prog = 'C:\\Windows\\py.exe']])
 end
 
 function basicOptions()
