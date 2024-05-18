@@ -1,7 +1,7 @@
 return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     lazy = true,
-    event = { 'BufReadPre', 'BufNewfile' },
+    event = {'BufReadPre', 'BufNewFile'},
     opts = {
         textobjects = {
             select = {
