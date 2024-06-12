@@ -6,19 +6,18 @@ return {
     },
     lazy = true,
     config = function (...)
-        local wk = require('which-key')
-
         require('autocommit').setup({})
         local ac = require('autocommit')
 
-        --- vim.keymap.set('n', '<Leader>ac', function() ac.hook() end)
-        wk.register( {
-            ['<leader>ac'] = {
-                function ()
-                    ac.hook()
-                end,
-                "Attach the autocommit hook to the current buffer"
+        vim.keymap.set(
+            'n',
+            '<Leader>ac',
+            function()
+                ac.hook()
+            end,
+            {
+                desc = "Set saving commit hook for this buffer"
             }
-        })
+        )
     end
 }

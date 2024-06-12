@@ -52,7 +52,15 @@ return {
         local api = require('nvim-tree.api')
         local key_opts = { silent = true, noremap = true }
 
-        vim.keymap.set({ 'n', 'v' }, '<C-n>', function() api.tree.toggle() end, key_opts)
+        vim.keymap.set(
+            { 'n', 'v' },
+            '<C-n>',
+            function()
+                api.tree.toggle()
+            end,
+            key_opts
+        )
+
         vim.keymap.set({ 'n', 'v' }, '<Leader>nf', function() api.tree.focus() end, key_opts)
         vim.keymap.set({ 'n', 'v' }, '<Leader>nr', function() api.tree.reload() end, key_opts)
 

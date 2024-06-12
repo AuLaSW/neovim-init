@@ -6,7 +6,7 @@ return {
     config = function ()
         require('focus').setup({
             autoresize = {
-                enable = true,
+                enable = false,
                 minwidth = 35,
                 minheight = 8,
                 height = 60,
