@@ -37,6 +37,13 @@ return {
     lazy = false,
     priority = 1000,
     config = function(...)
-        vim.cmd.colorscheme('catppuccin-macchiato')
+        require('catppuccin').setup({
+            flavour = 'mocha',
+            transparent_background = true,
+            styles = {
+                conditionals = {},
+            },
+        })
+        vim.cmd.colorscheme('catppuccin')
     end,
 }
