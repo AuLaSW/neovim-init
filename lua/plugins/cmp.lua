@@ -11,8 +11,8 @@ return {
             'SirVer/ultisnips',
             dependencies = {
                 'quangnguyen30192/cmp-nvim-ultisnips',
-                'rstacruz/vim-hyperstyle',
-                --- 'honza/vim-snippets'
+                --- 'rstacruz/vim-hyperstyle',
+                'honza/vim-snippets'
             }
         },
         'williamboman/mason.nvim',

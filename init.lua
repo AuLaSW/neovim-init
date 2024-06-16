@@ -5,5 +5,6 @@
 require('lazy_loader')
 
 require('setup').setup()
+require('keymaps').setup()
 
 require('autocmd')

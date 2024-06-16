@@ -2,20 +2,19 @@
 local M = {}
 
 function python()
-    print(vim.loop.os_uname().sysname)
     if vim.loop.os_uname().sysname == "Linux" then
-        vim.g.python3_host_prog = '/usr/bin/python3'
+        vim.g.python3_host_prog = '/usr/bin/python3.12'
     else
-	vim.g.python3_host_prog = 'C:\\Users\\dafrp\\AppData\\Local\\Microsoft\\WindowsApps\\py.exe'
+        vim.g.python3_host_prog = 'C:\\Users\\dafrp\\AppData\\Local\\Microsoft\\WindowsApps\\py.exe'
 	--vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe'
 	--vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Python310/python.exe'
     end
 end
 
-function python()
-    vim.cmd([[let g:python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe']])
-    vim.cmd([[let g:python3_host_prog = 'C:\\Windows\\py.exe']])
-end
+--- function python()
+---     vim.cmd([[let g:python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe']])
+---     vim.cmd([[let g:python3_host_prog = 'C:\\Windows\\py.exe']])
+--- end
 
 function basicOptions()
     -- exrc: run local vimrc file
