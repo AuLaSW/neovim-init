@@ -8,7 +8,4 @@ return {
     keys = {
         '<Leader>sr',
     },
-    config = function(_, opts)
-        vim.keymap.set({'n', 'x'}, "<leader>sr", function() require('ssr').open() end)
-    end,
 }

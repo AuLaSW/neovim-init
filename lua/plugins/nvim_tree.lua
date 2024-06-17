@@ -48,27 +48,5 @@ return {
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
         require('nvim-tree').setup(opts)
-
-        local api = require('nvim-tree.api')
-        local key_opts = { silent = true, noremap = true }
-
-        vim.keymap.set(
-            { 'n', 'v' },
-            '<C-n>',
-            function()
-                api.tree.toggle()
-            end,
-            key_opts
-        )
-
-        vim.keymap.set({ 'n', 'v' }, '<Leader>nf', function() api.tree.focus() end, key_opts)
-        vim.keymap.set({ 'n', 'v' }, '<Leader>nr', function() api.tree.reload() end, key_opts)
-
-        -- change the nvim-tree working directory to the directory of the current file
-        vim.keymap.set({ 'n', 'v' }, '<Leader>nb', function() api.tree.change_root(vim.fn.expand('%:p:h')) end, key_opts)
-        vim.keymap.set({ 'n', 'v' }, '<Leader>ni', function()
-            vim.cmd('e $MYVIMRC')
-            vim.api.nvim_set_current_dir(vim.fn.expand('%:p:h'))
-        end, key_opts)
     end,
 }

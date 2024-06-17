@@ -4,7 +4,7 @@ return {
     event = { 'BufReadPre', 'BufNewfile' },
     config = function()
         require("treesitter-context").setup({
-            separator = '+'
+            separator = '='
         })
 
         vim.cmd("hi TreesitterContextLineNumber guifg=#7fa2ac")

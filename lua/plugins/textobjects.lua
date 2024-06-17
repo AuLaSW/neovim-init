@@ -8,26 +8,26 @@ return {
                 enable = true,
                 lookahead = true,
                 keymaps = {
-                    ['am'] = '@function.outer',
-                    ['aM'] = '@function.outer.start',
-                    ['im'] = '@function.inner',
+                    ['saf'] = '@function.outer',
+                    ['saF'] = '@function.outer.start',
+                    ['sif'] = '@function.inner',
 
-                    ['aa'] = '@assignment.outer',
-                    ['ia'] = '@assignment.inner',
-                    ['la'] = '@assignment.lhs',
-                    ['ra'] = '@assignment.rhs',
+                    ['saa'] = '@assignment.outer',
+                    ['sia'] = '@assignment.inner',
+                    ['sla'] = '@assignment.lhs',
+                    ['sra'] = '@assignment.rhs',
 
-                    ['ab'] = '@block.outer',
-                    ['ib'] = '@block.inner',
+                    ['sab'] = '@block.outer',
+                    ['sib'] = '@block.inner',
 
-                    ['ao'] = '@loop.outer',
-                    ['io'] = '@loop.inner',
+                    ['sal'] = '@loop.outer',
+                    ['sil'] = '@loop.inner',
 
-                    ['ac'] = '@conditional.outer',
-                    ['ic'] = '@conditional.inner',
+                    ['sac'] = '@conditional.outer',
+                    ['sic'] = '@conditional.inner',
 
-                    ['a['] = '@class.outer',
-                    ['i['] = '@class.inner',
+                    ['sa['] = '@class.outer',
+                    ['si['] = '@class.inner',
                 },
                 selection_modes = {
                     ['@parameter.outer'] = 'v',
@@ -39,53 +39,42 @@ return {
             swap = {
                 enable = true,
                 swap_next = {
-                    ['<leader>na'] = '@parameter.inner',
-                    ['<leader>nm'] = '@function.outer',
-                    ['<leader>nb'] = '@block.outer',
+                    ['swp'] = '@parameter.inner',
+                    ['swf'] = '@function.outer',
+                    ['swb'] = '@block.outer',
                 },
                 swap_previous = {
-                    ['<leader>pa'] = '@parameter.inner',
-                    ['<leader>pm'] = '@function.outer',
-                    ['<leader>pb'] = '@block.outer',
+                    ['swP'] = '@parameter.inner',
+                    ['swF'] = '@function.outer',
+                    ['swB'] = '@block.outer',
                 }
             },
             move = {
                 enable = true,
                 set_jumps = true, -- whether to set jumps in the jumplist
                 goto_next_start = {
-                    ["]m"] = "@function.outer",
+                    ["]f"] = "@function.outer",
                     ["]]"] = { query = "@class.outer", desc = "Next class start" },
-                    --
-                    -- You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queires.
-                    -- ["]o"] = { query = { "@loop.inner", "@loop.outer" } }
-                    --
-                    -- You can pass a query group to use query from `queries/<lang>/<query_group>.scm file in your runtime path.
-                    -- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.
-                    --- ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
-                    --- ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
                 },
                 goto_next_end = {
-                    ["]M"] = "@function.outer",
+                    ["]F"] = "@function.outer",
                     ["]["] = "@class.outer",
                 },
                 goto_previous_start = {
-                    ["[m"] = "@function.outer",
+                    ["[f"] = "@function.outer",
                     ["[["] = "@class.outer",
                 },
                 goto_previous_end = {
-                    ["[M"] = "@function.outer",
+                    ["[F"] = "@function.outer",
                     ["[]"] = "@class.outer",
                 },
-                -- Below will go to either the start or the end, whichever is closer.
-                -- Use if you want more granular movements
-                -- Make it even more gradual by adding multiple queries and regex.
                 goto_next = {
                     ["]c"] = "@conditional.outer",
-                    ["]o"] = "@loop.outer",
+                    ["]l"] = "@loop.outer",
                 },
                 goto_previous = {
                     ["[c"] = "@conditional.outer",
-                    ["[o"] = "@loop.outer",
+                    ["[l"] = "@loop.outer",
                 }
             },
         }

@@ -6,48 +6,34 @@ function python()
         vim.g.python3_host_prog = '/usr/bin/python3.12'
     else
         vim.g.python3_host_prog = 'C:\\Users\\dafrp\\AppData\\Local\\Microsoft\\WindowsApps\\py.exe'
-	--vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe'
-	--vim.g.python3_host_prog = '~/AppData/Local/Programs/Python/Python310/python.exe'
     end
 end
 
---- function python()
----     vim.cmd([[let g:python3_host_prog = '~/AppData/Local/Programs/Python/Launcher/py.exe']])
----     vim.cmd([[let g:python3_host_prog = 'C:\\Windows\\py.exe']])
---- end
-
-function basicOptions()
-    -- exrc: run local vimrc file
+local function basicOptions()
+    --- exrc: run local vimrc file
     vim.opt.exrc = true
 
     vim.g.mapleader = ','
 
-    -- turn on line numbers & use relative line numbers
-    -- displays current line # & other lines as relative
-    -- to current line
-    --set nu rnu
+    --- turn on line numbers & use relative line numbers
+    --- displays current line # & other lines as relative
+    --- to current line
     vim.opt.nu = true
     vim.opt.rnu = true
 
-    -- when searching is complete, do not leave highlights
-    --set nohlsearch
+    --- when searching is complete, do not leave highlights
+    ---set nohlsearch
     vim.opt.hlsearch = false
 
-    -- buffers that are abandoned are not discarded but hidden
-    --set hidden
+    --- buffers that are abandoned are not discarded but hidden
     vim.opt.hidden = true
 
-    -- Do not make noise when errors are made
-    --set noerrorbells
+    --- Do not make noise when errors are made
     vim.opt.errorbells = false
 
-    -- when it opens or creates a file, try unix and if that doesn't work,
-    -- then try dos file format endings
+    --- when it opens or creates a file, try unix and if that doesn't work,
+    --- then try dos file format endings
     vim.opt.ffs = 'unix,dos'
-
-    -- when moving the cursor up or down just after inserting indent
-    -- do not delete the indent
-    vim.opt.cpoptions = 'I'
 
     vim.opt.mouse = ''
 
@@ -122,14 +108,14 @@ function M.setup()
     tabSetup()
     fileSetup()
 
-    local opts = { silent = true, noremap = true }
-    vim.keymap.set('n', '<Leader>o', 'o<ESC>', opts)
-    vim.keymap.set('n', '<Leader>O', 'O<ESC>', opts)
-
-    -- for regenerating a sheet
-    vim.keymap.set('n', '<Leader>pg', 'V{gq', opts)
-    vim.keymap.set('n', '<Leader>pG', 'V}gq', opts)
-    vim.keymap.set('n', '<Leader>pp', '{V}gq', opts)
+    --- local opts = { silent = true, noremap = true }
+    --- vim.keymap.set('n', '<Leader>o', 'o<ESC>', opts)
+    --- vim.keymap.set('n', '<Leader>O', 'O<ESC>', opts)
+    ---
+    --- -- for regenerating a sheet
+    --- vim.keymap.set('n', '<Leader>pg', 'V{gq', opts)
+    --- vim.keymap.set('n', '<Leader>pG', 'V}gq', opts)
+    --- vim.keymap.set('n', '<Leader>pp', '{V}gq', opts)
 end
 
 return M

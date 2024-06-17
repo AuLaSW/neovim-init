@@ -27,20 +27,7 @@ return {
                     vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
                 end,
             },
-            mapping = {
-                ['<C-J>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-                ['<C-K>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-                ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-                ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-                ['<C-D>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-U>'] = cmp.mapping.scroll_docs(4),
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<C-E>'] = cmp.mapping.close(),
-                ['<C-L>'] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = true,
-                })
-            },
+            mapping = {},
 
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
