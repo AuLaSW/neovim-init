@@ -78,14 +78,14 @@ function M.setup()
                 "Add the file to the harpoon."
             },
             -- autocommit
-            ['<leader>a'] = {
-                c = {
-                    function ()
-                        M.autocommit.hook()
-                    end,
-                    "Set saving commit hook for current buffer."
-                }
-            },
+        },
+        ['<leader>a'] = {
+            c = {
+                function ()
+                    M.autocommit.hook()
+                end,
+                "Set saving commit hook for current buffer."
+            }
         },
         --- trouble
         ['<leader>x'] = {
@@ -349,6 +349,33 @@ function M.setup()
                 "Resume previous telescope search",
                 silent = true,
                 noremap = true,
+            },
+        },
+        ['<leader>c'] = {
+            name = "code window",
+            o = {
+                function ()
+                    M.codewindow.open_minimap()
+                end,
+                "Open minimap",
+            },
+            c = {
+                function ()
+                    M.codewindow.close_minimap()
+                end,
+                "Close minimap",
+            },
+            m = {
+                function ()
+                    M.codewindow.toggle_minimap()
+                end,
+                "Toggle minimap",
+            },
+            f = {
+                function ()
+                    M.codewindow.focus_minimap()
+                end,
+                "Focus minimap",
             },
         },
         --- left motions
