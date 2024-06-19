@@ -17,6 +17,7 @@ function M.setup()
     M.telescope = require('telescope')
     M.telescope_api = require('telescope.builtin')
     M.cmp = require('cmp')
+    M.codewindow = require('codewindow')
 
     M.wk.register({
         -- hop/harpoon
@@ -282,6 +283,7 @@ function M.setup()
                 },
             }
         },
+        --- telescope
         ['<leader>t'] = {
             name = "telescope",
             p = {
@@ -431,7 +433,7 @@ function M.setup()
         },
         --- cmp mappings
         --- start
-        ['<A-j>'] = {
+        ['<M-j>'] = {
             function ()
                 M.cmp.select_next_item({
                     behavior = M.cmp.SelectBehavior.Insert
@@ -457,7 +459,7 @@ function M.setup()
             mode = {'i'}
         },
         -- this is also a general competion usage keymap
-        ['<M-;>'] = {
+        ['<M-i>'] = {
             function ()
                 M.cmp.confirm({
                     behavior = M.cmp.ConfirmBehavior.Replace,
@@ -465,13 +467,13 @@ function M.setup()
                 })
             end,
             "Select completion (cmp/Tabby)",
-            mode = {'i'}
+            mode = {'i'},
         },
         --- end
         ['<C-\\>'] = "Trigger or dismiss Tabby",
         -- tmux is using these
-        ['<A-l>'] = "which_key_ignore",
-        ['<A-h>'] = "which_key_ignore",
+        ['<M-l>'] = "which_key_ignore",
+        ['<M-h>'] = "which_key_ignore",
         ['<C-Space>'] = "which_key_ignore",
     })
 end
