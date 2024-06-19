@@ -5,7 +5,7 @@ return {
     opts = {},
     config = function(...)
         require('hop').setup({
-            keys = 'fjrudkeislwo',
+            keys = 'fjrudkeislwoa;qp',
         })
     end,
 }
