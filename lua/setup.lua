@@ -1,12 +1,16 @@
 --This is the beginning of testing an init.lua config
 local M = {}
+--
+-- function python()
+--     if vim.loop.os_uname().sysname == "Linux" then
+--         vim.g.python3_host_prog = '/usr/bin/python3.12'
+--     else
+--         vim.g.python3_host_prog = 'C:\\Users\\dafrp\\AppData\\Local\\Microsoft\\WindowsApps\\py.exe'
+--     end
+-- end
 
 function python()
-    if vim.loop.os_uname().sysname == "Linux" then
-        vim.g.python3_host_prog = '/usr/bin/python3.12'
-    else
-        vim.g.python3_host_prog = 'C:\\Users\\dafrp\\AppData\\Local\\Microsoft\\WindowsApps\\py.exe'
-    end
+	vim.g.python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.12/bin/python3'
 end
 
 local function basicOptions()

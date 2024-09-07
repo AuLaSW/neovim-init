@@ -18,158 +18,190 @@ function M.setup()
     M.telescope_api = require('telescope.builtin')
     M.cmp = require('cmp')
     M.codewindow = require('codewindow')
+    M.neotest = require('neotest')
 
-    M.wk.register({
-        -- hop/harpoon
-        ["<leader>h"] = {
-            name = "Hop/Harpoon",
-            --- hop
-            w = {
+    M.wk.add({
+        {
+            group = "Hop/Harpoon",
+            {
+                '<leader>h',
+                group = "Hop/Harpoon"
+            },
+            {
+                '<leader>hw',
                 function ()
                     M.hop.hint_words()
                 end,
-                "Hop to the beginning of words.",
+                desc = "Hop to the beginning of words.",
                 mode = {'n', 'v'}
             },
-            c = {
+            {
+                '<leader>hc',
                 function ()
                     M.hop.hint_char2()
                 end,
-                "Specify two characters and hop to all occurances.",
+                desc = "Specify two characters and hop to all occurances.",
                 mode = {'n', 'v'}
             },
-            s = {
+            {
+                '<leader>hs',
                 function ()
                     M.hop.hint_lines_skip_whitespace()
                 end,
-                "Hop to the beginning of a line.",
+                desc = "Hop to the beginning of a line.",
                 mode = {'n', 'v'}
             },
             --- harpoon
-            r = {
+            {
+                '<leader>hr',
                 function ()
                     M.harpoon.ui.toggle_quick_menu()
                 end,
-                "Activate the menu for harpoon."
+                desc = "Activate the menu for harpoon."
             },
-            o = {
+            {
+                '<leader>ho',
                 function ()
                     local buf = tonumber(vim.fn.input('Mark: '))
                     M.harpoon.ui.nav_file(buf)
                 end,
-                "Move to the marked file at the numbered location."
+                desc = "Move to the marked file at the numbered location."
             },
-            n = {
+            {
+                '<leader>hn',
                 function()
                     M.harpoon.ui.nav_next()
                 end,
-                "Move to the next mark in the harpoon."
+                desc = "Move to the next mark in the harpoon."
             },
-            p = {
+            {
+                '<leader>hp',
                 function()
                     M.harpoon.ui.nav_prev()
                 end,
-                "Move to the next mark in the harpoon."
+                desc = "Move to the next mark in the harpoon."
             },
-            a = {
+            {
+                '<leader>ha',
                 function()
                     M.harpoon.mark.add_file()
                 end,
-                "Add the file to the harpoon."
+                desc = "Add the file to the harpoon."
             },
-            -- autocommit
         },
-        ['<leader>a'] = {
-            c = {
-                function ()
-                    M.autocommit.hook()
+        {
+            group = "Testing",
+            {
+                '<leader>e',
+                group = "neotest"
+            },
+            {
+                '<leader>ef',
+                function()
+                    M.neotest.run.run(vim.fn.expand("%"))
                 end,
-                "Set saving commit hook for current buffer."
-            }
+                desc = "Add the file to the harpoon."
+            },
         },
-        --- trouble
-        ['<leader>x'] = {
-            name = "Trouble",
-            x = {
+        {
+            '<leader>ac',
+            function ()
+                M.autocommit.hook()
+            end,
+            desc = "Set saving commit hook for current buffer.",
+            group = "Autocommit"
+        },
+        {
+            group = "Trouble",
+            {
+                '<leader>xx',
                 "<cmd>Trouble diagnostics toggle<cr>",
-                "Toggle diagnostics"
+                desc = "Toggle diagnostics"
             },
-            X = {
+            {
+                '<leader>xX',
                 "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-                "Toggle diagnostics for buffer"
+                desc = "Toggle diagnostics for buffer"
             },
-            q = {
+            {
+                '<leader>xq',
                 "<cmd> Trouble quickfix toggle<cr>",
-                "Toggle diagnostics quickfix"
+                desc = "Toggle diagnostics quickfix"
             },
-            l = {
-                "<cmd>Trouble loclist toggle",
-                "Toggle diagnostics loclist"
+            {
+                '<leader>xl',
+                "<cmd>Trouble loclist toggle<cr>",
+                desc = "Toggle diagnostics loclist"
             },
-            ls = {
+            {
+                '<leader>xls',
                 "<cmd>Trouble lsp toggle",
-                "Toggle diagnostics lsp"
+                desc = "Toggle diagnostics lsp"
             },
         },
-        --- ssr
-        ['<leader>s'] = {
-            name = "ssr",
-            r = {
-                function ()
-                    M.ssr.open()
-                end,
-                "Use SSR to replace text.",
-                mode = {'n', 'v'}
-            }
+        {
+            '<leader>sr',
+            function ()
+                M.ssr.open()
+            end,
+            desc = "Use SSR to replace text.",
+            mode = {'n', 'v'},
+            group = "SSR",
         },
-        --- nvim-tree
-        ['<leader>n'] = {
-            name = "nvim-tree",
-            f = {
+        {
+            group = "Nvim Tree",
+            {
+                '<leader>nf',
                 function ()
                     M.nvim_tree.tree.focus()
                 end,
-                "Focus on the file tree.",
+                desc = "Focus on the file tree.",
                 silent = true,
                 noremap = true,
             },
-            r = {
+            {
+                '<leader>nr',
                 function ()
                     M.nvim_tree.tree.reload()
                 end,
-                "Reload the file tree.",
+                desc = "Reload the file tree.",
                 silent = true,
                 noremap = true,
             },
-            b = {
+            {
+                '<leader>nb',
                 function ()
                     M.nvim_tree.tree.change_root(
                         vim.fn.expand('%:p:h')
                     )
                 end,
-                "Change the root of the file tree.",
+                desc = "Change the root of the file tree.",
                 silent = true,
                 noremap = true,
             },
-            i = {
+            {
+                '<leader>ni',
                 function ()
                     vim.cmd('e $MYVIMRC')
                     vim.api.nvim_set_current_dir(vim.fn.expand('%:p:h'))
                 end,
-                "Edit the nvim config file",
+                desc = "Edit the nvim config file",
+                silent = true,
+                noremap = true,
+            },
+            {
+                '<C-N>',
+                function ()
+                    M.nvim_tree.tree.toggle()
+                end,
+                desc = "Toggle the file tree",
                 silent = true,
                 noremap = true,
             },
         },
-        -- nvim_tree init
-        ["<C-N>"] = {
-            function()
-                M.nvim_tree.tree.toggle()
-            end,
-            "Toggle the file tree",
-            silent = true,
-            noremap = true,
-        },
+    })
+
+    M.wk.register({
         --- lsp
         ['<leader>l'] = {
             name = "lsp",
