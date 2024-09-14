@@ -6,8 +6,8 @@ return {
         vim.o.timeoutlen = 300
     end,
     opts = {
-        triggers_nowait = {
-            '<leader>'
+        triggers = {
+            { '<leader>', mode = "nxso" },
         }
     }
 }
