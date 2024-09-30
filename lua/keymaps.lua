@@ -90,26 +90,68 @@ function M.setup()
             },
         },
         {
-            group = "Testing",
-            {
-                '<leader>e',
-                group = "neotest"
-            },
+            '<leader>e',
+            group = "neotest",
             {
                 '<leader>ef',
                 function()
                     M.neotest.run.run(vim.fn.expand("%"))
                 end,
-                desc = "Add the file to the harpoon."
+                desc = "Test the whole file"
+            },
+            {
+                '<leader>et',
+                function()
+                    M.neotest.run.run()
+                end,
+                desc = "Run nearest test"
+            },
+            {
+                '<leader>e<leader>',
+                function()
+                    M.neotest.run.run_last()
+                end,
+                desc = "Rerun the last test"
+            },
+            {
+                '<leader>ew',
+                function()
+                    M.neotest.watch.toggle(vim.fn.expand("%"))
+                end,
+                desc = "Toggle watching the current file."
+            },
+            {
+                '<leader>es',
+                function()
+                    M.neotest.watch.stop(vim.fn.input("File: "))
+                end,
+                desc = "Stop watching described file"
+            },
+            {
+                '<leader>en',
+                function()
+                    M.neotest.jump.next({ status = "failed" })
+                end,
+                desc = "Jump to next failed test"
+            },
+            {
+                '<leader>ep',
+                function()
+                    M.neotest.jump.prev({ status = "failed" })
+                end,
+                desc = "Jump to previous failed test"
             },
         },
         {
-            '<leader>ac',
-            function()
-                M.autocommit.hook()
-            end,
-            desc = "Set saving commit hook for current buffer.",
-            group = "Autocommit"
+            '<leader>a',
+            group = "Autocommit",
+            {
+                '<leader>ac',
+                function()
+                    M.autocommit.hook()
+                end,
+                desc = "Set saving commit hook for current buffer.",
+            },
         },
         {
             '<leader>x',
@@ -142,17 +184,17 @@ function M.setup()
             {
                 '<leader>xs',
                 "<cmd>Trouble symbols toggle win.position=bottom<cr>",
-                desc = "Toggle diagnostics lsp"
+                desc = "Toggle symbols lsp"
             },
         },
         {
             '<leader>sr',
+            group = "SSR",
             function()
                 M.ssr.open()
             end,
             desc = "Use SSR to replace text.",
             mode = { 'n', 'v' },
-            group = "SSR",
         },
         {
             '<leader>n',

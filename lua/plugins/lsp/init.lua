@@ -8,8 +8,8 @@ return {
         'barreiroleo/ltex_extra.nvim',
     },
     lazy = true,
-    event = {"BufReadPost", "BufNewFile"},
-    config = function (...)
+    event = { "BufReadPost", "BufNewFile" },
+    config = function(...)
         local servers = {
             'ltex',
             'clangd',
@@ -23,10 +23,10 @@ return {
             'gopls'
         }
 
+        require('mason').setup()
         require('mason-lspconfig').setup(
             { ensure_installed = servers, }
         )
-        require('mason').setup()
 
         local T = {
             -- util required for root_pattern
@@ -39,7 +39,7 @@ return {
         }
 
         for _, server in ipairs(servers) do
-            local server_name = 'plugins.lsp.'..server
+            local server_name = 'plugins.lsp.' .. server
             local utils = 'plugins.lsp.utils'
 
             if pcall(require, server_name) then
