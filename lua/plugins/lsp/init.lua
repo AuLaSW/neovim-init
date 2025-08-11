@@ -12,21 +12,23 @@ return {
     config = function(...)
         local servers = {
             'ltex',
+            'sqlls',
             'clangd',
             'cmake',
             'pylsp',
             'lua_ls',
             'quick_lint_js',
             'html',
-            'bufls',
             'rust_analyzer',
-            'gopls'
+            'gopls',
+            'ts_ls',
+            'csharp_ls'
         }
 
         require('mason').setup()
-        require('mason-lspconfig').setup(
-            { ensure_installed = servers, }
-        )
+        require('mason-lspconfig').setup({
+            ensure_installed = servers,
+        })
 
         local T = {
             -- util required for root_pattern

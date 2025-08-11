@@ -158,12 +158,12 @@ function M.setup()
             group = "Trouble",
             {
                 '<leader>xx',
-                "<cmd>Trouble diagnostics toggle<cr>",
+                "<cmd>Trouble diagnostics toggle win.position=bottom<cr>",
                 desc = "Toggle diagnostics"
             },
             {
                 '<leader>xX',
-                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+                "<cmd>Trouble diagnostics toggle win.position=bottom filter.buf=0<cr>",
                 desc = "Toggle diagnostics for buffer"
             },
             {
@@ -183,8 +183,13 @@ function M.setup()
             },
             {
                 '<leader>xs',
-                "<cmd>Trouble symbols toggle win.position=bottom<cr>",
+                "<cmd>Trouble symbols toggle win.position=right win.size=80 filter.buf=0<cr>",
                 desc = "Toggle symbols lsp"
+            },
+            {
+                '<leader>xw',
+                "<cmd>Trouble symbols toggle win.position=right win.size=70 filter.buf=0<cr><cmd>Trouble diagnostics toggle win.position=bottom filter.buf=0<cr>",
+                desc = "Toggle typical workspace lsp"
             },
         },
         {
@@ -531,7 +536,7 @@ function M.setup()
                 mode = { 'i' },
             },
             {
-                '<M-i>',
+                '<M-;>',
                 function()
                     M.cmp.confirm({
                         behavior = M.cmp.ConfirmBehavior.Replace,

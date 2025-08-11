@@ -13,7 +13,7 @@ return function (T, lang)
                             enabled = true,
                             live_mode = true,
                             report_progress = true,
-                            executable = 'py -m mypy'
+                            executable = 'python3 -m mypy'
                         },
                         pyflakes = {
                             enabled = false,
